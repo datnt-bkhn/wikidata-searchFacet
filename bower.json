@@ -1,0 +1,20 @@
+{
+  "name": "thesis",
+  "description": "thesis",
+  "main": "index.js",
+  "authors": [
+    "tien dat"
+  ],
+  "license": "isc",
+  "keywords": [
+    "rdf"
+  ],
+  "homepage": "",
+  "private": true,
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "angular-material": "^1.0.8",
+    "angular-ivh-treeview": "^1.0.4",
+    "underscore": "^1.8.3"
+  }
+}

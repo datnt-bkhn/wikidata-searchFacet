@@ -1,0 +1,21 @@
+<span ng-click="ctToogleEvent($event,facet)">{{facet.iconText}}</span>
+<span >{{ facet.text}}({{facet.number}})</span>
+<ul ng-show="facet.isExpand">
+    <li ng-repeat="facetValue in facet.value" >
+        <input type="checkbox" ng-model="facetValue.isCheck" ng-change="showResult()">
+        <span> {{ facetValue.text}}({{facetValue.number}}) </span>
+        <span ng-show="false"> {{ facetValue.fullLink}} </span>
+    </li>
+</ul>
+<ul>
+    <li ng-click="showQualifier($event,facet)"> Show Qualifier </li>
+    <li ng-click="showReference($event,facet)"> Show Reference </li>
+</ul>
+<!--
+<ul ng-show="!facet.hideMenu" ng-if="facet.facets">
+
+    <li ng-repeat="facet in facet.facets" ng-click="nodeSelected($event,facet)"
+        ng-include="'app/directives/treeViewFacet.html'">
+    </li>
+</ul>
+-->

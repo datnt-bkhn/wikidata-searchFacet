@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Wikidata search</title>
+    <link rel="stylesheet" type="text/css" href="publish/index.css">
+    <script src="publish/index.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+                <span class="input-group-btn">
+                    <button class="btn-u" ng-click="generateInitInterface()">Go</button>
+                </span>
+    <div layout="column">
+        <div class="ct-div-header"> Facted Browsing for Wikidata </div>
+        <div class="ct-div-search" layout="row">
+            <!--<div flex="70" ng-controller="TradeSearchController" class="input-group">
+                <input class="form-control" type="text" required ng-model="searchQuery.keywords"
+                       ng-keyup="getSuggestions($event)" />
+                <ul class="typeahead" ng-show="suggestions.length > 0">
+                    <li ng-repeat="suggestion in suggestions" auto-suggest-menu-item class="">
+                        <a ng-href="#">{{suggestion.id}}-{{suggestion.label}}</a>
+                    </li>
+                </ul>
+            </div>
+            -->
+            <div flex="100"  layout="row" ng-cloak>
+                <md-content class="md-padding" ng-controller="autoComplete">
+                    <form ng-submit="$event.preventDefault()">
+                        <md-autocomplete
+                                md-selected-item="selectedItem"
+                                md-search-text-change="searchTextChange(searchText)"
+                                md-search-text="searchText"
+                                md-selected-item-change="selectedItemChange(item)"
+                                md-items="item in querySearch(searchText)"
+                                md-item-text="item.display"
+                                md-min-length="1"
+                                placeholder="Find instances of class">
+                            <md-item-template>
+                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No class matching "{{searchText}}" were found.
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br/>
+                    </form>
+                </md-content>
+                <md-button class="" ng-click="generateInitInterface()">
+                    <md-icon md-svg-src="app/img/search.svg"></md-icon>
+                </md-button>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <div layout="row">
+            <div flex="20" layout="column">
+                <ul>
+                    <li ng-repeat="facet in facets" ng-include="'app/directives/treeViewFacet.html'">
+                    </li>
+                </ul>
+            </div>
+            <div flex="80">
+                <ul>
+                    <li ng-repeat="result in results">
+                        {{result.item.value}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
