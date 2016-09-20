@@ -14,10 +14,14 @@ gulp.task('sass', function(){
 });
 
 gulp.task('scripts',function(){
-    return gulp.src(['bower_components/angular/angular.js','bower_components/angular-aria/angular-aria.js',
-                    'bower_components/angular-animate/angular-animate.js','bower_components/angular-material/angular-material.js',
-                    'bower_components/angular-ivh-treeview/dist/ivh-treeview.js',
+    return gulp.src(['bower_components/angular/angular.js',
+                    'bower_components/angular-aria/angular-aria.js',
+                    'bower_components/angular-animate/angular-animate.js',
+                    'bower_components/angular-material/angular-material.js',
+        /*'bower_components/angular-ivh-treeview/dist/ivh-treeview.js',*/
                     'bower_components/underscore/underscore.js',
+                    'bower_components/angular-animate/angular-animate.js',
+                    'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
                     'app/app.js',
                     'app/Service/*.js',
                     'app/directives/*.js',
@@ -28,8 +32,10 @@ gulp.task('scripts',function(){
 
 gulp.task('css',function(){
     return gulp.src(['bower_components/angular-material/angular-material.css',
-                    'bower_components/angular-ivh-treeview/dist/ivh-treeview.css',
-                    'bower_components/angular-ivh-treeview/dist/ivh-treeview-theme-basic.css',
+        /*'bower_components/angular-ivh-treeview/dist/ivh-treeview.css',
+                    'bower_components/angular-ivh-treeview/dist/ivh-treeview-theme-basic.css',*/
+
+                    'bower_components/bootstrap/dist/css/bootstrap.css',
                     'app/scss/wikidata.scss'])
         .pipe(concat('index.css'))
         .pipe(gulp.dest('publish'))

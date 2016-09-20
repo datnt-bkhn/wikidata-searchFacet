@@ -47,26 +47,31 @@
                 </md-button>
             </div>
 
-
-
-
-
-
-
         </div>
         <div layout="row">
             <div flex="20" layout="column">
                 <ul>
                     <li ng-repeat="facet in facets" ng-include="'app/directives/treeViewFacet.html'">
                     </li>
+                    <div ng-show="facets.length>0">
+                        <input type="text"><br>
+                        Add property
+                    </div>
+
                 </ul>
             </div>
-            <div flex="80">
+            <div flex="60">
+                <span>The number of results: {{numberResults}}</span>
                 <ul>
                     <li ng-repeat="result in results">
                         {{result.item.value}}
                     </li>
                 </ul>
+            </div>
+            <div flex>
+                <md-content flex layout-padding>
+                    {{runningQuery}}
+                    </md-content>
             </div>
         </div>
 

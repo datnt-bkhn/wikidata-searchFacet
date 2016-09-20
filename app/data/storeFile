@@ -1,0 +1,12 @@
+dataType
+wikibase:WikibaseProperty
+wikibase:WikibaseItem
+wikibase:Url
+wikibase:Time
+wikibase:String
+wikibase:Quantity
+wikibase:Monolingualtext
+wikibase:Math
+wikibase:GlobeCoordinate
+wikibase:ExternalId
+wikibase:CommonsMedia

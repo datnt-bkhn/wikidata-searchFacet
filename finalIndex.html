@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Wikidata search</title>
+    <link rel="stylesheet" type="text/css" href="publish/index.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="publish/index.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="wikidataController" ng-cloak>
+    <div layout="column">
+        <div class="ct-div-header"> Facted Browsing for Wikidata </div>
+        <div class="ct-div-search" layout="row">
+
+            <div flex="100"  layout="row" ng-cloak>
+                <md-content class="md-padding" ng-controller="autoComplete">
+                    <form ng-submit="$event.preventDefault()">
+                        <md-autocomplete
+                                md-selected-item="selectedItem"
+                                md-search-text-change="searchTextChange(searchText)"
+                                md-search-text="searchText"
+                                md-selected-item-change="selectedItemChange(item)"
+                                md-items="item in querySearch(searchText)"
+                                md-item-text="item.display"
+                                md-min-length="1"
+                                placeholder="Find instances of class">
+                            <md-item-template>
+                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No class matching "{{searchText}}" were found.
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br/>
+                    </form>
+                </md-content>
+                <md-button class="" ng-click="generateInitInterface()">
+                    <md-icon md-svg-src="app/img/search.svg"></md-icon>
+                </md-button>
+            </div>
+
+        </div>
+        <div layout="row">
+            <div flex="20" layout="column">
+                <ul>
+                    <li ng-repeat="facet in facets" ng-include="'app/directives/finalTreeViewFacetTest.html'">
+                    </li>
+                    <div ng-show="facets.length>0">
+                        <input type="text"><br>
+                        Add property
+                    </div>
+
+                </ul>
+            </div>
+            <div flex="60">
+                <span>The number of results: {{numberResults}}</span>
+                <ul>
+                    <li ng-repeat="result in results">
+                        {{result.item.value}}
+                    </li>
+                </ul>
+            </div>
+            <div flex>
+                <md-content flex layout-padding>
+                    {{runningQuery}}
+                    </md-content>
+            </div>
+        </div>
+
+    </div>
+
+<!--
+    <div ng-controller="AccordionDemoCtrl">
+        <script type="text/ng-template" id="group-template.html">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="color:#fa39c3">
+                    <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+            {{heading}}
+          </span>
+                    </a>
+                </h4>
+            </div>
+            <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                <div class="panel-body" style="text-align: right" ng-transclude></div>
+            </div>
+        </script>
+
+        <p>
+            <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+            <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+        </p>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="oneAtATime">
+                Open only one at a time
+            </label>
+        </div>
+        <uib-accordion close-others="oneAtATime">
+            <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                This content is straight in the template.
+            </div>
+            <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
+                {{group.content}}
+            </div>
+            <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
+                <p>The body of the uib-accordion group grows to fit the contents</p>
+                <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+                <div ng-repeat="item in items">{{item}}</div>
+            </div>
+            <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+                Hello
+            </div>
+            <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+                <uib-accordion-heading>
+                    Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+                </uib-accordion-heading>
+                World
+            </div>
+            <div uib-accordion-group class="panel-danger" heading="Delete account">
+                <p>Please, to delete your account, click the button below</p>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+            <div uib-accordion-group class="panel-default" is-open="status.open">
+                <uib-accordion-heading>
+                    I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+                This is just some content to illustrate fancy headings.
+            </div>
+        </uib-accordion>
+    </div>
+
+-->
+</body>
+</html>
+

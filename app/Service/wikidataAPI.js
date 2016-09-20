@@ -13,7 +13,41 @@ app.factory('wikidataAPI', function($http) {
                     return response.data.results.bindings;
                 },
                 function(error){
-                    return error;
+                    throw error;
+                }
+            );
+        },
+        sendQueryReturnParams: function(query,oParam1,oParam2){
+            var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +
+                encodeURIComponent(query);
+
+            return $http.get(urlSPARQL).then (
+                function(response){
+                    var result={};
+                    result["data"]=response.data.results.bindings;
+                    result["oParam"]=[];
+                    result["oParam"].push(oParam1);
+                    result["oParam"].push(oParam2);
+                    return result;
+                },
+                function(error){
+                    throw error;
+                }
+            );
+        },
+        sendLabelQuery: function(query,entityId){
+            var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +
+                encodeURIComponent(query);
+
+            return $http.get(urlSPARQL).then (
+                function(response){
+                    var result={};
+                    result["data"]=response.data.results.bindings;
+                    result["entityId"]=entityId;
+                    return result;
+                },
+                function(error){
+                    throw error;
                 }
             );
         },
