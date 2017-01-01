@@ -1,6 +1,6 @@
 
 
-app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,config, wikidataIndex,utilities) {
+app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config, wikidataIndex,utilities) {
     $scope.keyword = "human";
     $scope.search=function(){
         //var query ="select ?u where {?u wdt:P31 wd:Q5.} limit 100";
@@ -86,18 +86,16 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                                 else fPropertyObject["isPropertyType"]=false;
                                 fPropertyObject["uri"]=propertyUri;
                                 fPropertyObject["entityId"]=propertyId;
-                                fPropertyObject["text"]=facetProperty.propertyLabel.value;
                                 newObject["fProperty"]=fPropertyObject;
                                 //for fInterface
                                 var fInterfaceObject={};
                                 fInterfaceObject["iconText"]="+";
                                 fInterfaceObject["isExpand"]=false;
                                 fInterfaceObject["isInit"]=true;
-                                fInterfaceObject["numberItems"]=numberFound;
                                 newObject["fInterface"]=fInterfaceObject;
                                 $scope.facets.push(newObject);
 
-                                /*
+
                                 var propertyLabelQuery=getPropertyLabelQuery(propertyUri);
                                 wikidataAPI.sendLabelQuery(propertyLabelQuery,propertyId).then(
                                     function(returnedData){
@@ -109,7 +107,6 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                                         oldFacet["fProperty"]["text"]=label;
                                     }
                                 );
-                                */
                             }
                         });
                     },
@@ -145,12 +142,12 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
         showFacetValue($event,facet);
     }
 
-    $scope.showQualifiers=function ($event,facet,facetValue){
+    $scope.showQualifiers=function ($event,facet){
         var propertyId=facet["Id"];
-        facetValue["fQualifiers"]={};
-        facetValue["fQualifiers"]["isExpand"]=true;
-        facetValue["fQualifiers"]["hasQualifiers"]=[];
-        var facetQualifiersQuery=getQualifierQuery(facet,facetValue);
+        facet["fQualifiers"]={};
+        facet["fQualifiers"]["isExpand"]=true;
+        facet["fQualifiers"]["hasQualifiers"]=[];
+        var facetQualifiersQuery=getQualifierQuery(facet);
         wikidataAPI.sendQuery(facetQualifiersQuery).then(function(returnedQualifiersData){
             _.each(returnedQualifiersData,function(qualifierProperty){
                 var newQualifier={};
@@ -162,14 +159,14 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                 newQualifier["qInterface"]["isExpand"]=false;
                 newQualifier["qInterface"]["isInit"]=true;
 
-                facetValue["fQualifiers"]["hasQualifiers"].push(newQualifier);
+                facet["fQualifiers"]["hasQualifiers"].push(newQualifier);
                 
                 var propertyLabelQuery=getPropertyLabelQuery(qualifierProperty.qualifier.value);
                 wikidataAPI.sendLabelQuery(propertyLabelQuery,newQualifier["qProperty"]["entityId"]).then(
                     function(returnedData){
                         var label=returnedData["data"][0]["propertyLabel"].value;
                         var propertyId=returnedData["entityId"];
-                        var oldQualifierObject=_.find(facetValue["fQualifiers"]["hasQualifiers"],function(fQualifierObject){
+                        var oldQualifierObject=_.find(facet["fQualifiers"]["hasQualifiers"],function(fQualifierObject){
                             return fQualifierObject["qProperty"]["entityId"]==propertyId;
                         });
                         oldQualifierObject["qProperty"]["text"]=label;
@@ -199,29 +196,19 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
         }
     }
 
-    $scope.changeFacetValue =function($event,facet,facetValue){
+    $scope.changeFacetValue =function($event,facetValue,facet){
+        $scope.changeSelectedValue=true;
 
-        if(facetValue.text=="Any"){
-            console.log("Any");
-            $scope.showQualifiers($event,facet,facetValue);
-            $scope.showNextLevel($event,facet);
+        getResults();
+        getCondition();
+        //showFacetValue($event,facet);
+        //$scope.showQualifiers($event,facet);
+        _.each($scope.facets, function(facet){
+            if(!facet["fProperty"]["isPropertyType"]){
+                updateFacetNumberInstances(facet);
+            }
 
-        }
-        else{
-            $scope.showQualifiers($event,facet,facetValue);
-            $scope.changeSelectedValue=true;
-
-            //getResults();
-            //getCondition();
-            //showFacetValue($event,facet);
-            //$scope.showQualifiers($event,facet);
-            _.each($scope.facets, function(facet){
-                if(!facet["fProperty"]["isPropertyType"]){
-                    updateFacetNumberInstances(facet);
-                }
-
-            });
-        }
+        });
     }
 
     $scope.changeQualifierValue=function(qualifierValue,facetQualifier,facet){
@@ -234,7 +221,7 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
     };
 
     $scope.showNextLevel=function($event,facet){
-        if($event) $event.stopPropagation();
+        $event.stopPropagation();
         //do sth
         facet["fNextLevel"]=[];
 
@@ -305,18 +292,15 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
 
     var getInitInterfaceQuery=function(typeClass){
         getCondition();
-        var query='Select ?facet ?propertyLabel (count (?facet) as ?numberFound) \
+        var query='Select ?facet (count (?facet) as ?numberFound) \
             where { \
              hint:Query hint:optimizer "None" . \
-            { select distinct ?item  where { ?item wdt:P31 wd:'+typeClass + '. } limit ' + $scope.limitInstances + '  } \
+            { select ?item  where { ?item wdt:P31 wd:'+typeClass + '. } limit ' + $scope.limitInstances + '  } \
             ?item ?facet ?value. \
             '+ $scope.conditionQuery+' \
-             ?property wikibase:claim ?facet \
-             SERVICE wikibase:label { \
-                    bd:serviceParam wikibase:language "' + $scope.language+'" . \
-                }\
+             filter strstarts(str(?facet),"http://www.wikidata.org/prop/direct") \
              } \
-            group by ?facet ?propertyLabel \
+            group by ?facet  \
             order by DESC (?numberFound) \
             limit ' + $scope.limitFacets;
 
@@ -362,26 +346,8 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
         return query;
     }
 
-    var getQualifierQuery=function(facet,facetValue){
-        var query="";
-        if(facetValue["text"]!="Any"){
-            query='select ?qualifier (count(?qualifier) as ?countQualifier) \
-        where \
-        { \
-            ?item wdt:P31 wd:'+ $scope.typeId + '. \
-            ?item p:'+ facet["Id"] + ' ?statement. \
-            ?statement ps:' + facet["Id"] + ' wd:' + facetValue["entityId"] +'.\
-            ?statement ?qualifier ?qualifierValue. \
-            '+ $scope.conditionQuery+' \
-            filter strstarts(str(?qualifier),"http://www.wikidata.org/prop/qualifier/P") \
-        } \
-        group by (?qualifier) \
-        order by DESC(?countQualifier) \
-        limit 10' ;
-
-        }
-        else{
-            query='select ?qualifier (count(?qualifier) as ?countQualifier) \
+    var getQualifierQuery=function(facet){
+        var query='select ?qualifier (count(?qualifier) as ?countQualifier) \
         where \
         { \
             ?item wdt:P31 wd:'+ $scope.typeId + '. \
@@ -393,7 +359,6 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
         group by (?qualifier) \
         order by DESC(?countQualifier) \
         limit 10' ;
-        }
         $scope.runningQuery=query;
         return query;
     }
@@ -445,7 +410,7 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                 catch(err){
                     console.log(err);
                 }
-                /*try
+                try
                 {
                     _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
                         iStatement=iStatement+1;
@@ -466,7 +431,7 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                 catch(err){
                     console.log(err);
                 }
-                */
+
 
             }
         });
@@ -544,16 +509,7 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
             else if( propertyDataType=="Url"|| propertyDataType=="WikibaseItem"
                 || propertyDataType=="String"||propertyDataType=="Monolingualtext")
             {
-                var facetValueQuery=getFacetValuesQuery(facet);//
-                //add value any
-                var newValueObject={};
-                newValueObject["uri"]="Any";
-                newValueObject["entityId"]="Any";
-                newValueObject["text"]="Any";
-                newValueObject["isAny"]=true;
-                newValueObject["fQualifiers"]={};
-                facet["fValues"]["values"].push(newValueObject);
-                //
+                var facetValueQuery=getFacetValuesQuery(facet);
                 wikidataAPI.sendQuery(facetValueQuery)
                     .then(
                         function(facetValueResult) {
@@ -563,7 +519,6 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                                 var newValueObject={};
                                 newValueObject["uri"]=valueText;
                                 newValueObject["entityId"]=getEntityId(valueText);
-                                newValueObject["fQualifiers"]={};
                                 facet["fValues"]["values"].push(newValueObject);
 
                                 if(propertyDataType=="WikibaseItem"){
@@ -669,24 +624,20 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
             var iStatement=0;
             if(!facet["fProperty"]["isPropertyType"]){
                 try{
-                    if(facet["fValues"]){
-                        _.each(facet["fValues"]["values"],function(facetValue){
-                            if(facetValue["isSelected"]){
-                                if(facetValue["text"]!="Any")
-                                    valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
-
-                            }
-                        })
-                        if(valueCondition.length>0){
-                            facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
+                    _.each(facet["fValues"]["values"],function(facetValue){
+                        if(facetValue["isSelected"]){
+                            valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
                         }
-
+                    })
+                    if(valueCondition.length>0){
+                        facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
                     }
+
                 }
                 catch(err){
                     console.log(err);
                 }
-                /*try
+                try
                 {
                     _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
                         iStatement=iStatement+1;
@@ -707,7 +658,7 @@ app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,c
                 catch(err){
                     console.log(err);
                 }
-                */
+
 
             }
         });

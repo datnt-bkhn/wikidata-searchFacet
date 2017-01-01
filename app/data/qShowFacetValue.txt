@@ -1,0 +1,7 @@
+select (min(?facetValue) as ?minFacetValue) (max(?facetValue) as ?maxFacetValue)
+        where
+        {
+            ?item wdt:P31 wd:Q183.
+            ?item wdt:P17 ?facetValue.
+            filter isLiteral(?facetValue).
+        }

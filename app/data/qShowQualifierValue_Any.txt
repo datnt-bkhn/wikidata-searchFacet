@@ -1,0 +1,24 @@
+SELECT ?qualifier ?propertyLabel (count(?qualifier) as ?countQualifier)
+WHERE
+{
+	hint:Query hint:optimizer "None".
+    {
+      SELECT *
+      WHERE
+      {
+    	?item wdt:P31 wd:$1$.
+		?item wdt:$2$ ?u.
+      }
+      limit $3$
+    }
+  	?item p:$4$ ?statement.
+    ?statement ?qualifier ?qualifierValue.
+  	?property wikibase:qualifier ?qualifier
+     SERVICE wikibase:label {
+   bd:serviceParam wikibase:language "$5$" .
+ }
+}
+group by (?qualifier) (?propertyLabel)
+order by DESC(?countQualifier)
+
+

@@ -1,0 +1,25 @@
+Select ?property ?propertyLabel ?numberFound
+where
+{
+	{
+		Select ?property (count (?property) as ?numberFound)
+		where
+		{
+			{
+				select ?property
+				where
+				{
+					?item wdt:P31 wd:$1$.
+					?item ?facet ?value.
+					?property wikibase:claim ?facet.
+				}
+				limit $2$
+			}
+		}
+		group by ?property
+		order by DESC (?numberFound)
+	}
+	SERVICE wikibase:label {bd:serviceParam wikibase:language "$3$". }
+}
+order by DESC (?numberFound)
+limit $4$
