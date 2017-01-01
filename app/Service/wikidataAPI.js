@@ -7,7 +7,7 @@ app.factory('wikidataAPI', function($http) {
         sendQuery: function(query){
             var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +
                 encodeURIComponent(query);
-            var config={cache:true};
+            var config={cache:false};
             return $http.get(urlSPARQL,config).then (
                 function(response){
                     return response.data.results.bindings;

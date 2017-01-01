@@ -19,13 +19,13 @@
                     <ul ng-if="facetValue.fQualifiers">
                         <li ng-repeat="facetQualifier in facetValue.fQualifiers.hasQualifiers">
                             <span ng-click="showHideQualifierValue($event,facet,facetValue,facetQualifier)" class="btnExpand">{{facetQualifier.qInterface.iconText}}</span>
-                            <a ng-href="{{facetQualifier.qProperty.uri}}" target="_blank"> <span>{{facetQualifier.qProperty.text}}</span> </a>
+                            <a ng-href="{{facetQualifier.qProperty.uri}}" target="_blank"> <span>{{facetQualifier.qProperty.text}}({{facetQualifier.numberItems}})</span> </a>
                             <!--<span ng-click="showQualifierValue(facetQualifier,facet,facetValue)">refesh</span> -->
                             <ul ng-show="facetQualifier.qInterface.isExpand">
                                 <div ng-if="facetQualifier.qValues.dataType=='String' || facetQualifier.qValues.dataType=='Url' || facetQualifier.qValues.dataType=='Monolingualtext' || facetQualifier.qValues.dataType=='WikibaseItem'">
                                     <li ng-repeat="qualifierValue in facetQualifier.qValues.values">
                                         <input type="checkbox" ng-model="qualifierValue.isSelected" ng-change="changeQualifierValue(qualifierValue,facetQualifier,facet,facetValue)">
-                                        <span> {{qualifierValue.text}}</span>
+                                        <span> {{qualifierValue.text}} ({{qualifierValue.numberItems}})</span>
                                     </li>
                                 </div>
                                 <div ng-if="facetQualifier.qValues.dataType=='Time' || facetQualifier.qValues.dataType=='Quantity'">

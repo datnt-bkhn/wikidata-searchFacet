@@ -1,6 +1,7 @@
 [
   {
     "Id":"P106",
+    "Level":1,
     "fProperty":{
       "isPropertyType":false,
       "uri": "http://www.wikidata.org/P106",
@@ -23,6 +24,7 @@
             "hasSelectedQualifier":true,
             "hasQualifiers":[
               {
+                "numberItems":30,
                 "qProperty":{
                   "uri": "http://www.wikidata.org/P505",
                   "entityId": "P505",
@@ -36,7 +38,8 @@
                     {
                       "uri":"http://Q183",
                       "entityId": "Q183",
-                      "isSelected": true
+                      "isSelected": true,
+                      "numberItems":10
                     }
 
                   ]
@@ -148,6 +151,7 @@
       "fFacet":[
         {
           "Id":"P106",
+          "Level":2,
           "fProperty":{
             "isPropertyType":false,
             "uri": "http://www.wikidata.org/P106",

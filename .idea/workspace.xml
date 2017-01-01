@@ -5,51 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8839186-94b8-4338-a9c1-91a91ef60161" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/facetParser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/facetValueManager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/qualifierManager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/wikidataConstant.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/_finalWikidataController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/_wikidataController.jss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacet.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValue.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValueMinMax.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValue_v0txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowNextLevelClass.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/query.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/directives/facetTreeView.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/FirstJasmineExample.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/UsingDirectJasmine.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/boot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine-html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test1.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/directives/treeViewFacetTest.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/_ctTreeView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/_finalWikidataController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/_myCtrl.js1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/_wikidataController.jss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/directives/_treeViewFacet.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/directives/_treeViewFacetTest.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/utilities.js" afterPath="$PROJECT_DIR$/app/Service/utilities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/facetValueManager.js" afterPath="$PROJECT_DIR$/app/Service/facetValueManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" afterPath="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/qualifierManager.js" afterPath="$PROJECT_DIR$/app/Service/qualifierManager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/wikidataAPI.js" afterPath="$PROJECT_DIR$/app/Service/wikidataAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/wikidataIndex.js" afterPath="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/wikidataController.js" afterPath="$PROJECT_DIR$/app/controllers/wikidataController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/wikidataSharedData.js" afterPath="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/facets.json" afterPath="$PROJECT_DIR$/app/data/facets.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/publish/index.js" afterPath="$PROJECT_DIR$/publish/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/autoComplete.js" afterPath="$PROJECT_DIR$/app/controllers/autoCompleteController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/ctTreeView.js" afterPath="$PROJECT_DIR$/app/controllers/_ctTreeView.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/myCtrl.js1" afterPath="$PROJECT_DIR$/app/controllers/_myCtrl.js1" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/finalTreeViewFacetTest.html" afterPath="$PROJECT_DIR$/app/directives/_treeViewFacetTest.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/treeViewFacet.html" afterPath="$PROJECT_DIR$/app/directives/_treeViewFacet.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/finalIndex.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/indexTest.html" afterPath="$PROJECT_DIR$/_indexTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/qShowQualifier.txt" afterPath="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" afterPath="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" afterPath="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/facetTreeView.html" afterPath="$PROJECT_DIR$/app/directives/facetTreeView.html" />
     </list>
     <ignored path="SourceCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,47 +44,47 @@
             <file leaf-file-name="facets.json" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/app/data/facets.json">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="238">
-                    <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                  <state relative-caret-position="221">
+                    <caret line="153" column="20" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
                     <folding>
-                      <element signature="e#39#176#0" expanded="false" />
-                      <element signature="e#510#1301#0" expanded="false" />
-                      <element signature="e#626#1274#0" expanded="false" />
-                      <element signature="e#1521#3306#0" expanded="false" />
-                      <element signature="e#1975#2333#0" expanded="false" />
-                      <element signature="e#2497#2646#0" expanded="false" />
-                      <element signature="e#2674#3179#0" expanded="false" />
-                      <element signature="e#2803#3161#0" expanded="false" />
-                      <element signature="e#3210#3263#0" expanded="false" />
-                      <element signature="e#3352#3533#0" expanded="false" />
-                      <element signature="e#3552#9084#0" expanded="false" />
-                      <element signature="e#3569#3834#0" expanded="false" />
-                      <element signature="e#3704#3826#0" expanded="false" />
-                      <element signature="e#3908#4075#0" expanded="false" />
-                      <element signature="e#4097#7845#0" expanded="false" />
-                      <element signature="e#4202#7833#0" expanded="false" />
-                      <element signature="e#4447#5400#0" expanded="false" />
-                      <element signature="e#4587#5361#0" expanded="false" />
-                      <element signature="e#5432#7818#0" expanded="false" />
-                      <element signature="e#6200#6624#0" expanded="false" />
-                      <element signature="e#6830#7003#0" expanded="false" />
-                      <element signature="e#7037#7638#0" expanded="false" />
-                      <element signature="e#7190#7614#0" expanded="false" />
-                      <element signature="e#7675#7740#0" expanded="false" />
-                      <element signature="e#7871#8069#0" expanded="false" />
-                      <element signature="e#8128#9069#0" expanded="false" />
-                      <element signature="e#9092#9682#0" expanded="false" />
-                      <element signature="e#9686#11623#0" expanded="false" />
-                      <element signature="e#11627#14136#0" expanded="false" />
-                      <element signature="e#11662#11799#0" expanded="false" />
-                      <element signature="e#11906#12906#0" expanded="false" />
-                      <element signature="e#12105#12896#0" expanded="false" />
-                      <element signature="e#12221#12869#0" expanded="false" />
-                      <element signature="e#13262#13413#0" expanded="false" />
-                      <element signature="e#13811#13864#0" expanded="false" />
-                      <element signature="e#13953#14109#0" expanded="false" />
-                      <element signature="e#14140#16385#0" expanded="false" />
-                      <element signature="e#16389#17114#0" expanded="false" />
+                      <element signature="e#54#191#0" expanded="false" />
+                      <element signature="e#207#3421#0" expanded="false" />
+                      <element signature="e#705#856#0" expanded="false" />
+                      <element signature="e#1294#1347#0" expanded="false" />
+                      <element signature="e#1610#3395#0" expanded="false" />
+                      <element signature="e#2064#2422#0" expanded="false" />
+                      <element signature="e#2586#2735#0" expanded="false" />
+                      <element signature="e#2763#3268#0" expanded="false" />
+                      <element signature="e#2892#3250#0" expanded="false" />
+                      <element signature="e#3299#3352#0" expanded="false" />
+                      <element signature="e#3441#3622#0" expanded="false" />
+                      <element signature="e#3658#3923#0" expanded="false" />
+                      <element signature="e#3793#3915#0" expanded="false" />
+                      <element signature="e#4018#4185#0" expanded="false" />
+                      <element signature="e#4207#7955#0" expanded="false" />
+                      <element signature="e#4312#7943#0" expanded="false" />
+                      <element signature="e#4557#5510#0" expanded="false" />
+                      <element signature="e#4697#5471#0" expanded="false" />
+                      <element signature="e#5542#7928#0" expanded="false" />
+                      <element signature="e#6310#6734#0" expanded="false" />
+                      <element signature="e#6940#7113#0" expanded="false" />
+                      <element signature="e#7147#7748#0" expanded="false" />
+                      <element signature="e#7300#7724#0" expanded="false" />
+                      <element signature="e#7785#7850#0" expanded="false" />
+                      <element signature="e#7981#8179#0" expanded="false" />
+                      <element signature="e#8238#9179#0" expanded="false" />
+                      <element signature="e#9202#9792#0" expanded="false" />
+                      <element signature="e#9796#11733#0" expanded="false" />
+                      <element signature="e#11737#14246#0" expanded="false" />
+                      <element signature="e#11772#11909#0" expanded="false" />
+                      <element signature="e#12016#13016#0" expanded="false" />
+                      <element signature="e#12215#13006#0" expanded="false" />
+                      <element signature="e#12331#12979#0" expanded="false" />
+                      <element signature="e#13372#13523#0" expanded="false" />
+                      <element signature="e#13921#13974#0" expanded="false" />
+                      <element signature="e#14063#14219#0" expanded="false" />
+                      <element signature="e#14250#16495#0" expanded="false" />
+                      <element signature="e#16499#17224#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -128,141 +100,7 @@
     <favorites_list name="SourceCode" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="facetValueManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Service/facetValueManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="88" column="91" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
-              <folding>
-                <element signature="e#0#43#0" expanded="false" />
-                <element signature="e#215#454#0" expanded="false" />
-                <element signature="e#1628#1640#0" expanded="false" />
-                <element signature="e#2087#2556#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facetTreeView.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/directives/facetTreeView.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-              <folding>
-                <element signature="n#div#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initialInterfaceGeneration.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-              <folding>
-                <element signature="e#792#1711#0" expanded="false" />
-                <element signature="e#2031#4681#0" expanded="false" />
-                <element signature="e#4910#5315#0" expanded="false" />
-                <element signature="e#6910#9851#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wikidataAPI.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-              <folding>
-                <element signature="e#1241#1886#0" expanded="false" />
-                <element signature="e#1936#2485#0" expanded="false" />
-                <element signature="e#2542#3342#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qShowFacetValue_v0txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue_v0txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wikidataController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/wikidataController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
-              <folding>
-                <element signature="e#3110#3234#0" expanded="false" />
-                <element signature="e#4310#4492#0" expanded="false" />
-                <element signature="e#4783#4845#0" expanded="false" />
-                <element signature="e#5001#5093#0" expanded="false" />
-                <element signature="e#5746#8693#0" expanded="false" />
-                <element signature="e#5890#8464#0" expanded="false" />
-                <element signature="e#5966#8445#0" expanded="false" />
-                <element signature="e#6020#8423#0" expanded="false" />
-                <element signature="e#6194#6330#0" expanded="false" />
-                <element signature="e#6363#6516#0" expanded="false" />
-                <element signature="e#6720#7922#0" expanded="false" />
-                <element signature="e#6823#7890#0" expanded="false" />
-                <element signature="e#7045#7541#0" expanded="false" />
-                <element signature="e#7149#7502#0" expanded="false" />
-                <element signature="e#7227#7460#0" expanded="false" />
-                <element signature="e#7615#7856#0" expanded="false" />
-                <element signature="e#7985#8292#0" expanded="false" />
-                <element signature="e#8514#8679#0" expanded="false" />
-                <element signature="e#9689#9815#0" expanded="false" />
-                <element signature="e#9921#10059#0" expanded="false" />
-                <element signature="e#10598#10731#0" expanded="false" />
-                <element signature="e#10835#10967#0" expanded="false" />
-                <element signature="e#11075#11211#0" expanded="false" />
-                <element signature="e#11324#11465#0" expanded="false" />
-                <element signature="e#11584#11686#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qShowFacet.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/data/qShowFacet.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="101" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qShowFacetValue.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wikidataIndex.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -299,32 +137,32 @@
         <option value="$PROJECT_DIR$/app/Service/utilities.js" />
         <option value="$PROJECT_DIR$/app/data/query.txt" />
         <option value="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
-        <option value="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/test/test1.js" />
         <option value="$PROJECT_DIR$/karma.conf.js" />
         <option value="$PROJECT_DIR$/test/UsingDirectJasmine" />
         <option value="$PROJECT_DIR$/test/FirstJasmineExample.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
-        <option value="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
         <option value="$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt" />
-        <option value="$PROJECT_DIR$/app/Service/qualifierManager.js" />
         <option value="$PROJECT_DIR$/app/data/qShowFacetValueMinMax.txt" />
         <option value="$PROJECT_DIR$/app/data/qShowNextLevelClass.txt" />
         <option value="$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt" />
         <option value="$PROJECT_DIR$/app/data/qInitializeFacet.txt" />
-        <option value="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/Service/facetParser.js" />
         <option value="$PROJECT_DIR$/app/data/qShowFacet.txt" />
         <option value="$PROJECT_DIR$/app/data/qShowFacetValue.txt" />
-        <option value="$PROJECT_DIR$/app/data/facets.json" />
-        <option value="$PROJECT_DIR$/app/directives/facetTreeView.html" />
-        <option value="$PROJECT_DIR$/app/Service/facetValueManager.js" />
         <option value="$PROJECT_DIR$/app/controllers/wikidataController.js" />
         <option value="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" />
+        <option value="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
+        <option value="$PROJECT_DIR$/app/directives/facetTreeView.html" />
+        <option value="$PROJECT_DIR$/app/Service/facetValueManager.js" />
+        <option value="$PROJECT_DIR$/app/Service/qualifierManager.js" />
         <option value="$PROJECT_DIR$/app/Service/wikidataAPI.js" />
+        <option value="$PROJECT_DIR$/app/data/facets.json" />
       </list>
     </option>
   </component>
@@ -342,10 +180,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1364" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -403,6 +239,78 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SourceCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -599,12 +507,12 @@
       <workItem from="1483085470654" duration="5241000" />
       <workItem from="1483110968501" duration="9927000" />
       <workItem from="1483141774735" duration="6159000" />
-      <workItem from="1483208785214" duration="6745000" />
+      <workItem from="1483208785214" duration="13834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378260000" />
+    <option name="totallyTimeSpent" value="385349000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,11 +524,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1364" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2001488" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28959277" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16859505" sideWeight="0.35735965" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -650,7 +558,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05958132" sideWeight="0.64264035" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23767886" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3065476" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22120866" sideWeight="0.49046105" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -684,41 +592,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/data/storeFile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/Index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/propertyDataTypeStatistic.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7055">
-          <caret line="0" column="49643" selection-start-line="0" selection-start-column="49640" selection-end-line="0" selection-end-column="49643" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/query.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -818,24 +691,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="50" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier_Any.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -846,24 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="2" selection-start-line="15" selection-start-column="5" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/data/qShowNextLevelClass.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/qualifierManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="75" column="92" selection-start-line="75" selection-start-column="92" selection-end-line="75" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -878,20 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/wikidataSharedData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -939,20 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/_finalWikidataController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/_ctTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1191">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Phân tích Business Intelligence dựa trên Big Data.URL">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -969,6 +786,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/_ctTreeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1377">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/_finalWikidataController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-680">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/_myCtrl.js1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/_wikidataController.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataConstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/facetTreeView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/facetValueManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+            <element signature="e#215#454#0" expanded="false" />
+            <element signature="e#1629#1641#0" expanded="false" />
+            <element signature="e#2088#2557#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/data/qShowFacet.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -977,89 +898,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue.txt">
+    <entry file="file://$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
+        <state relative-caret-position="289">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="e#830#1749#0" expanded="false" />
+            <element signature="e#2069#4719#0" expanded="false" />
+            <element signature="e#4948#5353#0" expanded="false" />
+            <element signature="e#6948#9889#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="e#1242#1887#0" expanded="false" />
+            <element signature="e#1937#2486#0" expanded="false" />
+            <element signature="e#2543#3343#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/facetValueManager.js">
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="88" column="91" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#215#454#0" expanded="false" />
-            <element signature="e#1628#1640#0" expanded="false" />
-            <element signature="e#2087#2556#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="125" selection-start-line="0" selection-start-column="125" selection-end-line="0" selection-end-column="125" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/facets.json">
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier_Any.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="e#39#176#0" expanded="false" />
-            <element signature="e#510#1301#0" expanded="false" />
-            <element signature="e#626#1274#0" expanded="false" />
-            <element signature="e#1521#3306#0" expanded="false" />
-            <element signature="e#1975#2333#0" expanded="false" />
-            <element signature="e#2497#2646#0" expanded="false" />
-            <element signature="e#2674#3179#0" expanded="false" />
-            <element signature="e#2803#3161#0" expanded="false" />
-            <element signature="e#3210#3263#0" expanded="false" />
-            <element signature="e#3352#3533#0" expanded="false" />
-            <element signature="e#3552#9084#0" expanded="false" />
-            <element signature="e#3569#3834#0" expanded="false" />
-            <element signature="e#3704#3826#0" expanded="false" />
-            <element signature="e#3908#4075#0" expanded="false" />
-            <element signature="e#4097#7845#0" expanded="false" />
-            <element signature="e#4202#7833#0" expanded="false" />
-            <element signature="e#4447#5400#0" expanded="false" />
-            <element signature="e#4587#5361#0" expanded="false" />
-            <element signature="e#5432#7818#0" expanded="false" />
-            <element signature="e#6200#6624#0" expanded="false" />
-            <element signature="e#6830#7003#0" expanded="false" />
-            <element signature="e#7037#7638#0" expanded="false" />
-            <element signature="e#7190#7614#0" expanded="false" />
-            <element signature="e#7675#7740#0" expanded="false" />
-            <element signature="e#7871#8069#0" expanded="false" />
-            <element signature="e#8128#9069#0" expanded="false" />
-            <element signature="e#9092#9682#0" expanded="false" />
-            <element signature="e#9686#11623#0" expanded="false" />
-            <element signature="e#11627#14136#0" expanded="false" />
-            <element signature="e#11662#11799#0" expanded="false" />
-            <element signature="e#11906#12906#0" expanded="false" />
-            <element signature="e#12105#12896#0" expanded="false" />
-            <element signature="e#12221#12869#0" expanded="false" />
-            <element signature="e#13262#13413#0" expanded="false" />
-            <element signature="e#13811#13864#0" expanded="false" />
-            <element signature="e#13953#14109#0" expanded="false" />
-            <element signature="e#14140#16385#0" expanded="false" />
-            <element signature="e#16389#17114#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="112" selection-start-line="0" selection-start-column="72" selection-end-line="0" selection-end-column="112" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/facetTreeView.html">
+    <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="n#div#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/qualifierManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="138" column="93" selection-start-line="138" selection-start-column="93" selection-end-line="138" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataSharedData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/wikidataController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
+        <state relative-caret-position="221">
+          <caret line="115" column="3" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
           <folding>
             <element signature="e#3110#3234#0" expanded="false" />
             <element signature="e#4310#4492#0" expanded="false" />
@@ -1090,52 +1013,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-          <folding>
-            <element signature="e#792#1711#0" expanded="false" />
-            <element signature="e#2031#4681#0" expanded="false" />
-            <element signature="e#4910#5315#0" expanded="false" />
-            <element signature="e#6910#9851#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
+    <entry file="file://$PROJECT_DIR$/app/data/facets.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <caret line="153" column="20" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
           <folding>
-            <element signature="e#1241#1886#0" expanded="false" />
-            <element signature="e#1936#2485#0" expanded="false" />
-            <element signature="e#2542#3342#0" expanded="false" />
+            <element signature="e#54#191#0" expanded="false" />
+            <element signature="e#207#3421#0" expanded="false" />
+            <element signature="e#705#856#0" expanded="false" />
+            <element signature="e#1294#1347#0" expanded="false" />
+            <element signature="e#1610#3395#0" expanded="false" />
+            <element signature="e#2064#2422#0" expanded="false" />
+            <element signature="e#2586#2735#0" expanded="false" />
+            <element signature="e#2763#3268#0" expanded="false" />
+            <element signature="e#2892#3250#0" expanded="false" />
+            <element signature="e#3299#3352#0" expanded="false" />
+            <element signature="e#3441#3622#0" expanded="false" />
+            <element signature="e#3658#3923#0" expanded="false" />
+            <element signature="e#3793#3915#0" expanded="false" />
+            <element signature="e#4018#4185#0" expanded="false" />
+            <element signature="e#4207#7955#0" expanded="false" />
+            <element signature="e#4312#7943#0" expanded="false" />
+            <element signature="e#4557#5510#0" expanded="false" />
+            <element signature="e#4697#5471#0" expanded="false" />
+            <element signature="e#5542#7928#0" expanded="false" />
+            <element signature="e#6310#6734#0" expanded="false" />
+            <element signature="e#6940#7113#0" expanded="false" />
+            <element signature="e#7147#7748#0" expanded="false" />
+            <element signature="e#7300#7724#0" expanded="false" />
+            <element signature="e#7785#7850#0" expanded="false" />
+            <element signature="e#7981#8179#0" expanded="false" />
+            <element signature="e#8238#9179#0" expanded="false" />
+            <element signature="e#9202#9792#0" expanded="false" />
+            <element signature="e#9796#11733#0" expanded="false" />
+            <element signature="e#11737#14246#0" expanded="false" />
+            <element signature="e#11772#11909#0" expanded="false" />
+            <element signature="e#12016#13016#0" expanded="false" />
+            <element signature="e#12215#13006#0" expanded="false" />
+            <element signature="e#12331#12979#0" expanded="false" />
+            <element signature="e#13372#13523#0" expanded="false" />
+            <element signature="e#13921#13974#0" expanded="false" />
+            <element signature="e#14063#14219#0" expanded="false" />
+            <element signature="e#14250#16495#0" expanded="false" />
+            <element signature="e#16499#17224#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>

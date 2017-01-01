@@ -1,4 +1,4 @@
-app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData) {
+app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData,facetParser) {
 
 
     var getQualifierQuery=function(facet,facetValue){
@@ -9,7 +9,8 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                 .replace('$2$', facet.Id)
                 .replace('$3$', '30000')
                 .replace('$4$', facet.Id)
-                .replace('$5$', wikidataSharedData.config.languageCode);
+                .replace('$5$', wikidataSharedData.config.languageCode)
+                .replace('$c$', facetParser.getCondition());
 
             return result;
         }
@@ -19,7 +20,8 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                 .replace('$2$', facet.Id)
                 .replace('$3$', facetValue.entityId)
                 .replace('$4$', facet.Id)
-                .replace('$5$', wikidataSharedData.config.languageCode);
+                .replace('$5$', wikidataSharedData.config.languageCode)
+                .replace('$c$', facetParser.getCondition());
 
             return result;
         }
@@ -35,7 +37,8 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                 var query = wikidataSharedData.query["ShowQualifierValueMinMax_Any"];
                 var result = query.replace('$1$', wikidataSharedData.config.keyword)
                     .replace('$2$', facet.Id)
-                    .replace('$3$', facetQualifier["qProperty"]["entityId"]);
+                    .replace('$3$', facetQualifier["qProperty"]["entityId"])
+                    .replace('$c$', facetParser.getCondition());
                 return result;
             }
             else{
@@ -43,7 +46,8 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                 var result = query.replace('$1$', wikidataSharedData.config.keyword)
                     .replace('$2$', facet.Id)
                     .replace('$3$', facetQualifier["qProperty"]["entityId"])
-                    .replace('$4$', wikidataSharedData.config.languageCode);
+                    .replace('$4$', wikidataSharedData.config.languageCode)
+                    .replace('$c$', facetParser.getCondition());
                 return result;
             }
 
@@ -76,6 +80,7 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                     || propertyDataType==wikidataConstant.propertyDataType["WikibaseItem"]){
 
                     var newQualifier={};
+                    newQualifier["numberItems"]=qualifierProperty.numberItems.value;
                     newQualifier["qProperty"]={};
                     newQualifier["qProperty"]["uri"]=qualifierProperty.qualifier.value;
                     newQualifier["qProperty"]["entityId"]=utilities.getEntityId(newQualifier["qProperty"]["uri"]);
@@ -131,6 +136,7 @@ app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataCon
                     function(qualifierValuesResult) {
                         _.each(qualifierValuesResult,function(qualifierValueResult){
                             var newQualifierValue={};
+                            newQualifierValue["numberItems"]=qualifierValueResult.numberItems.value;
                             newQualifierValue["uri"]=qualifierValueResult.qualifierValue.value;
                             newQualifierValue["entityId"]=utilities.getEntityId(qualifierValueResult.qualifierValue.value);
                             newQualifierValue["text"]=qualifierValueResult.qualifierValueLabel.value;

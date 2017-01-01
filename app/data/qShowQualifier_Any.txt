@@ -1,12 +1,13 @@
-SELECT ?qualifier ?propertyLabel (count(?qualifier) as ?countQualifier)
+SELECT ?qualifier ?propertyLabel (count(?qualifier) as ?countQualifier) (count(distinct(?item)) as ?numberItems)
 WHERE
 {
 	hint:Query hint:optimizer "None".
     {
-      SELECT *
+      SELECT ?item
       WHERE
       {
     	?item wdt:P31 wd:$1$.
+    	$c$
 		?item wdt:$2$ ?u.
       }
       limit $3$

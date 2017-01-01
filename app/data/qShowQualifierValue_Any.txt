@@ -1,7 +1,8 @@
-select ?qualifierValue ?qualifierValueLabel (count(?qualifierValue) as ?numberFound) 
+select ?qualifierValue ?qualifierValueLabel (count(?qualifierValue) as ?numberFound) (count(distinct(?item)) as ?numberItems)
         where 
         { 
             ?item wdt:P31 wd:$1$.
+            $c$
             ?item p:$2$ ?statement.
             ?statement pq:$3$ ?qualifierValue.
            SERVICE wikibase:label {

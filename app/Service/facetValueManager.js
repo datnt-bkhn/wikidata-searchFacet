@@ -16,7 +16,7 @@ app.factory('facetValueManager', function($http,utilities,wikidataAPI,wikidataCo
         var query=wikidataSharedData.query["ShowFacetValue"];
         var result=query.replace('$1$',wikidataSharedData.config.keyword)
             .replace('$2$',facet.Id)
-            .replace('$3$',wikidataSharedData.config.limitItemsInSubQuery)
+            .replace('$3$',wikidataSharedData.config.limitResultInSubQuery)
             .replace('$4$',wikidataSharedData.config.limitFacetValue)
             .replace('$5$',wikidataSharedData.config.languageCode)
             .replace('$c$', facetParser.getCondition());

@@ -3,7 +3,7 @@ app.factory('initialInterfaceGeneration', function($http,utilities,wikidataAPI,w
     var getShowFacetQuery=function(typeId){
         var query=wikidataSharedData.query["ShowFacet"];
         var result=query.replace('$1$',wikidataSharedData.config.keyword)
-            .replace('$2$','1000000')
+            .replace('$2$',wikidataSharedData.config.limitResultInSubQuery)
             .replace('$3$',wikidataSharedData.config.languageCode)
             .replace('$4$',wikidataSharedData.config.limitFacets)
             .replace('$c$', facetParser.getCondition());

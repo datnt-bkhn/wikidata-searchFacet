@@ -7,9 +7,9 @@ app.factory('wikidataSharedData',function(){
             keyword: '',
             languageCode: 'en',
             limitInstances: 3000,
-            limitFacets: 40,
+            limitFacets: 100,
             limitFacetValue:10,
-            limitItemsInSubQuery:500000
+            limitResultInSubQuery:1000000
             
         },
         query:{
