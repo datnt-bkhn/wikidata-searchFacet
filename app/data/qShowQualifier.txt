@@ -1,18 +1,23 @@
-SELECT ?facetValue ?facetValueLabel ?numberInstances
-WHERE 
+SELECT ?qualifier ?propertyLabel (count(?qualifier) as ?countQualifier)
+WHERE
 {
-	{
-		select ?facetValue  (count (?facetValue) as ?numberInstances)         
-		where         
-			{              
-			?item wdt:P31 wd:$1$.
-			?item wdt:$2$ ?facetValue.
-            }             
-		group by ?facetValue         
-		order by DESC (?numberInstances)      
-		limit $3$
-	}
-   SERVICE wikibase:label {bd:serviceParam wikibase:language "$4$".}
+	hint:Query hint:optimizer "None".
+    {
+      SELECT *
+      WHERE
+      {
+    	?item wdt:P31 wd:$1$.
+		?item wdt:$2$ wdt:$3$.
+      }
+    }
+  	?item p:$4$ ?statement.
+    ?statement ?qualifier ?qualifierValue.
+  	?property wikibase:qualifier ?qualifier
+     SERVICE wikibase:label {
+   bd:serviceParam wikibase:language "$5$" .
+ }
 }
-order by DESC (?numberInstances)
+group by (?qualifier) (?propertyLabel)
+order by DESC(?countQualifier)
+
 

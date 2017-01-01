@@ -1,0 +1,21 @@
+Select ?facet ?propertyLabel (count (?facet) as ?numberFound)
+where
+{
+    {
+		select *
+		where
+		{
+			?item wdt:P31 wd:$1$.
+            ?item wdt:$2$ ?u.
+            ?u wdt:P31 wd:$3$.
+			?u ?facet ?value.
+    		?property wikibase:claim ?facet
+		}
+		limit 100000
+	}
+
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "$4$" . }
+}
+group by ?facet ?propertyLabel
+order by DESC (?numberFound)
+limit $5$

@@ -7,13 +7,21 @@ app.factory('wikidataAPI', function($http) {
         sendQuery: function(query){
             var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +
                 encodeURIComponent(query);
-
-            return $http.get(urlSPARQL).then (
+            var config={cache:true};
+            return $http.get(urlSPARQL,config).then (
                 function(response){
                     return response.data.results.bindings;
                 },
-                function(error){
-                    throw error;
+                function(response){
+                    /*
+                    The response object has these properties:
+                        data – {string|Object} – The response body transformed with the transform functions.
+                        status – {number} – HTTP status code of the response.
+                        headers – {function([headerName])} – Header getter function.
+                        config – {Object} – The configuration object that was used to generate the request.
+                        statusText – {string} – HTTP status text of the response.
+                    */
+                    throw response;
                 }
             );
         },

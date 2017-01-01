@@ -1,5 +1,327 @@
 [
   {
+    "Id":"P106",
+    "fProperty":{
+      "isPropertyType":false,
+      "uri": "http://www.wikidata.org/P106",
+      "entityId": "P106",
+      "text":"Position Held"
+    },
+    "fValues":{
+      "dataType":"Entity",
+      "min": 1000,
+      "max":2000,
+      "values":[
+        {
+          "uri":"https://www.wikidata.org/wiki/Q4970706",
+          "entityId": "Q4970706",
+          "text": "Federal Chancellor of Germany",
+          "isSelected": true,
+          "numberItems":20,
+          "fQualifiers":{
+            "isExpand":true,
+            "hasSelectedQualifier":true,
+            "hasQualifiers":[
+              {
+                "qProperty":{
+                  "uri": "http://www.wikidata.org/P505",
+                  "entityId": "P505",
+                  "text":"StartTime"
+                },
+                "qValues":{
+                  "dataType":"Entity",
+                  "min": 1000,
+                  "max":2000,
+                  "values":[
+                    {
+                      "uri":"http://Q183",
+                      "entityId": "Q183",
+                      "isSelected": true
+                    }
+
+                  ]
+                },
+                "qInterface":{
+                  "isExpand":true
+                }
+              }
+            ]
+
+          }
+        },
+        {
+          "uri":"https://www.wikidata.org/wiki/Q1939555",
+          "entityId": "Q1939555",
+          "text": "member of the German Bundestag",
+          "isSelected": true,
+          "fQualifiers":{
+            "isExpand":true,
+            "hasSelectedQualifier":true,
+            "hasQualifiers":[
+              {
+                "qProperty":{
+                  "uri": "http://www.wikidata.org/P505",
+                  "entityId": "P505",
+                  "text":"StartTime"
+                },
+                "qValues":{
+                  "dataType":"Entity",
+                  "min": 1000,
+                  "max":2000,
+                  "values":[
+                    {
+                      "uri":"http://Q183",
+                      "entityId": "Q183",
+                      "isSelected": true
+                    },
+                    {
+                      "uri":"http://Q4",
+                      "entityId": "Q4",
+                      "isSelected": true
+                    }
+                  ]
+                },
+                "qInterface":{
+                  "isExpand":true
+                }
+              },
+              {
+                "qProperty":{
+                  "uri": "http://www.wikidata.org/P506",
+                  "entityId": "P506",
+                  "text":"EndTime"
+                },
+                "qValues":{
+                  "dataType":"Entity",
+                  "min": 1000,
+                  "max":2000,
+                  "values":[
+                    {
+                      "uri":"http://Q183",
+                      "entityId": "Q183",
+                      "isSelected": true
+                    },
+                    {
+                      "uri":"http://Q4",
+                      "entityId": "Q4",
+                      "isSelected": true
+                    }
+                  ]
+                },
+                "qInterface":{
+                  "isExpand":true
+                }
+              }
+            ]
+
+          }
+
+        }
+
+      ]
+    },
+
+    "fInterface":{
+      "iconText":"-",
+      "isExpand":true,
+      "hasSelectedValue":true,
+      "hasSelectedQualifier":true,
+      "order":1,
+      "operator":"A",
+      "numberItems":100
+    },
+    "fNextLevel":{
+      "fClass":[
+        {
+          "uri": "Q5",
+          "entityId":"Q5",
+          "text":"Human",
+          "isSelected":true
+        },
+        {
+          "uri": "Q183",
+          "entityId":"Q183",
+          "text":"Human32",
+          "isSelected":false
+        }
+      ],
+      "fFacet":[
+        {
+          "Id":"P106",
+          "fProperty":{
+            "isPropertyType":false,
+            "uri": "http://www.wikidata.org/P106",
+            "entityId": "P106",
+            "text":"Position Held"
+          },
+          "fValues":{
+            "dataType":"Entity",
+            "min": 1000,
+            "max":2000,
+            "values":[
+              {
+                "uri":"https://www.wikidata.org/wiki/Q4970706",
+                "entityId": "Q4970706",
+                "text": "Federal Chancellor of Germany",
+                "isSelected": true,
+                "fQualifiers":{
+                  "isExpand":true,
+                  "hasSelectedQualifier":true,
+                  "hasQualifiers":[
+                    {
+                      "qProperty":{
+                        "uri": "http://www.wikidata.org/P505",
+                        "entityId": "P505",
+                        "text":"StartTime"
+                      },
+                      "qValues":{
+                        "dataType":"Entity",
+                        "min": 1000,
+                        "max":2000,
+                        "values":[
+                          {
+                            "uri":"http://Q183",
+                            "entityId": "Q183",
+                            "isSelected": true
+                          }
+
+                        ]
+                      },
+                      "qInterface":{
+                        "isExpand":true
+                      }
+                    }
+                  ]
+
+                }
+              },
+              {
+                "uri":"https://www.wikidata.org/wiki/Q1939555",
+                "entityId": "Q1939555",
+                "text": "member of the German Bundestag",
+                "isSelected": true,
+                "fQualifiers":{
+                  "isExpand":true,
+                  "hasSelectedQualifier":true,
+                  "hasQualifiers":[
+                    {
+                      "qProperty":{
+                        "uri": "http://www.wikidata.org/P505",
+                        "entityId": "P505",
+                        "text":"StartTime"
+                      },
+                      "qValues":{
+                        "dataType":"Entity",
+                        "min": 1000,
+                        "max":2000,
+                        "values":[
+                          {
+                            "uri":"http://Q183",
+                            "entityId": "Q183",
+                            "isSelected": true
+                          },
+                          {
+                            "uri":"http://Q4",
+                            "entityId": "Q4",
+                            "isSelected": true
+                          }
+                        ]
+                      },
+                      "qInterface":{
+                        "isExpand":true
+                      }
+                    },
+                    {
+                      "qProperty":{
+                        "uri": "http://www.wikidata.org/P506",
+                        "entityId": "P506",
+                        "text":"EndTime"
+                      },
+                      "qValues":{
+                        "dataType":"Entity",
+                        "min": 1000,
+                        "max":2000,
+                        "values":[
+                          {
+                            "uri":"http://Q183",
+                            "entityId": "Q183",
+                            "isSelected": true
+                          },
+                          {
+                            "uri":"http://Q4",
+                            "entityId": "Q4",
+                            "isSelected": true
+                          }
+                        ]
+                      },
+                      "qInterface":{
+                        "isExpand":true
+                      }
+                    }
+                  ]
+
+                }
+
+              }
+
+            ]
+          },
+
+          "fInterface":{
+            "iconText":"-",
+            "isExpand":true,
+            "hasSelectedValue":true,
+            "hasSelectedQualifier":true,
+            "order":1,
+            "operator":"A"
+          },
+          "fNextLevel":{
+
+          }
+        },
+        {
+          "Id":"P569",
+          "fProperty":{
+            "isPropertyType":false,
+            "uri": "http://www.wikidata.org/P569",
+            "entityId": "P569",
+            "text":"date of birth"
+          },
+          "fValues":{
+            "dataType":"Time",
+            "min": 1900,
+            "max": 2016,
+            "values":[
+              {
+                "condition":">=",
+                "threshold":1980,
+                "isSelected": false
+              },
+              {
+                "condition":"=",
+                "threshold":1995,
+                "isSelected": false
+              }
+
+            ]
+          },
+          "fQualifiers":{
+          },
+          "fInterface":{
+            "iconText":"-",
+            "isExpand":true,
+            "hasSelectedValue":true,
+            "hasSelectedQualifier":true,
+            "order":1,
+            "operator":"A"
+          },
+          "fNextLevel":null
+        }
+
+      ]
+    }
+  },
+  {
     "Id":"P31",
     "fProperty":{
       "isPropertyType":true,
@@ -134,47 +456,79 @@
           "uri":"https://www.wikidata.org/wiki/Q4970706",
           "entityId": "Q4970706",
           "text": "Federal Chancellor of Germany",
-          "isSelected": true
+          "isSelected": true,
+          "fQualifiers":{
+            "isExpand":true,
+            "hasSelectedQualifier":true,
+            "hasQualifiers":[
+              {
+                "qProperty":{
+                  "uri": "http://www.wikidata.org/P505",
+                  "entityId": "P505",
+                  "text":"StartTime"
+                },
+                "qValues":{
+                  "dataType":"Entity",
+                  "min": 1000,
+                  "max":2000,
+                  "values":[
+                    {
+                      "uri":"http://Q183",
+                      "entityId": "Q183",
+                      "isSelected": true
+                    }
+
+                  ]
+                },
+                "qInterface":{
+                  "isExpand":true
+                }
+              }
+            ]
+
+          }
         },
         {
           "uri":"https://www.wikidata.org/wiki/Q1939555",
           "entityId": "Q1939555",
           "text": "member of the German Bundestag",
-          "isSelected": true
-        }
-
-      ]
-    },
-    "fQualifiers":{
-      "isExpand":true,
-      "hasSelectedQualifier":true,
-      "hasQualifiers":[
-        {
-          "qProperty":{
-            "uri": "http://www.wikidata.org/P505",
-            "entityId": "P505",
-            "text":"StartTime"
-          },
-          "qValues":{
-            "dataType":"Entity",
-            "min": 1000,
-            "max":2000,
-            "values":[
+          "isSelected": true,
+          "fQualifiers":{
+            "isExpand":true,
+            "hasSelectedQualifier":true,
+            "hasQualifiers":[
               {
-                "uri":"http://Q183",
-                "entityId": "Q183",
-                "isSelected": true
+                "qProperty":{
+                  "uri": "http://www.wikidata.org/P505",
+                  "entityId": "P505",
+                  "text":"StartTime"
+                },
+                "qValues":{
+                  "dataType":"Entity",
+                  "min": 1000,
+                  "max":2000,
+                  "values":[
+                    {
+                      "uri":"http://Q183",
+                      "entityId": "Q183",
+                      "isSelected": true
+                    }
+
+                  ]
+                },
+                "qInterface":{
+                  "isExpand":true
+                }
               }
-
             ]
-          },
-          "qInterface":{
-            "isExpand":true
-          }
-        }
-      ]
 
+          }
+
+        }
+
+      ]
     },
+
     "fInterface":{
       "iconText":"-",
       "isExpand":true,

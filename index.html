@@ -6,6 +6,23 @@
     <link rel="stylesheet" type="text/css" href="publish/index.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="publish/index.js"></script>
+    <script src="app/Service/config.js"></script>
+    <script src="app/Service/facetValueManager.js"></script>
+    <script src="app/Service/initialInterfaceGeneration.js"></script>
+    <script src="app/Service/qualifierManager.js"></script>
+    <script src="app/Service/utilities.js"></script>
+    <script src="app/Service/wikidataAPI.js"></script>
+    <script src="app/Service/wikidataConstant.js"></script>
+    <script src="app/Service/wikidataIndex.js"></script>
+    <script src="app/Service/wikidataSharedData.js"></script>
+    <script src="app/Service/facetParser.js"></script>
+
+    <script src="app/controllers/accorditionController.js"></script>
+    <script src="app/controllers/autoCompleteController.js"></script>
+    <script src="app/controllers/wikidataController.js"></script>
+
+
+
 </head>
 <body ng-app="myApp" ng-controller="wikidataController" ng-cloak>
     <div layout="column">
@@ -13,7 +30,7 @@
         <div class="ct-div-search" layout="row">
 
             <div flex="100"  layout="row" ng-cloak>
-                <md-content class="md-padding" ng-controller="autoComplete">
+                <md-content class="md-padding" ng-controller="autoCompleteController">
                     <form ng-submit="$event.preventDefault()">
                         <md-autocomplete
                                 md-selected-item="selectedItem"
@@ -43,7 +60,7 @@
         <div layout="row">
             <div flex="20" layout="column">
                 <ul>
-                    <li ng-repeat="facet in facets" ng-include="'app/directives/finalTreeViewFacetTest.html'">
+                    <li ng-repeat="facet in facets" ng-include="'app/directives/facetTreeView.html'">
                     </li>
                     <div ng-show="facets.length>0">
                         <input type="text"><br>

@@ -1,6 +1,12 @@
-app.factory('config',function(){
+app.factory('wikidataConstant',function(){
     return {
-        keyword: '',
-        languageCode: 'en'
+        propertyDataType: {
+            "WikibaseItem":"WikibaseItem",
+            "Url":"Url",
+            "String":"String",
+            "Quantity":"Quantity",
+            "Time":"Time",
+            "Monolingualtext":"Monolingualtext"
+        }
     }
 })

@@ -1,14 +1,10 @@
-select ?qualifierValue ?qualifierValueLabel (count(?qualifierValue) as ?numberFound) 
+select (min(?qualifierValue) as ?minQualifierValue) (max(?qualifierValue) as ?maxQualifierValue)
         where 
         { 
             ?item wdt:P31 wd:$1$.
             ?item p:$2$ ?statement.
             ?statement pq:$3$ ?qualifierValue.
-           SERVICE wikibase:label {
-   bd:serviceParam wikibase:language "$4$" .
-        }
+            filter isLiteral(?qualifierValue)
           }
-        group by (?qualifierValue) (?qualifierValueLabel)
-        order by DESC(?numberFound) 
-        limit 10
+
     

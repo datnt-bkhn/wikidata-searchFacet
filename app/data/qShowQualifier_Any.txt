@@ -7,8 +7,9 @@ WHERE
       WHERE
       {
     	?item wdt:P31 wd:$1$.
-		?item wdt:$2$ wdt:$3$.
+		?item wdt:$2$ ?u.
       }
+      limit $3$
     }
   	?item p:$4$ ?statement.
     ?statement ?qualifier ?qualifierValue.

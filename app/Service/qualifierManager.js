@@ -1,122 +1,151 @@
-/**
- * Created by tintin on 10/26/2016.
- */
+app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData) {
 
-app.factory('facetValueManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData) {
 
-    var getFacetValueMinMaxQuery=function(facet){
-        var query='select (min(?facetValue) as ?minFacetValue) (max(?facetValue) as ?maxFacetValue) \
-        where \
-        { \
-            ?item wdt:P31 wd:'+ wikidataSharedData.config.keyword +'. \
-            ?item wdt:'+ facet.Id + ' ?facetValue. \
-            filter isLiteral(?facetValue). \
-        }';
-        return query;
+    var getQualifierQuery=function(facet,facetValue){
+
+        if(facetValue["text"]=="Any"){
+            var query = wikidataSharedData.query["ShowQualifier_Any"];
+            var result = query.replace('$1$', wikidataSharedData.config.keyword)
+                .replace('$2$', facet.Id)
+                .replace('$3$', '30000')
+                .replace('$4$', facet.Id)
+                .replace('$5$', wikidataSharedData.config.languageCode);
+
+            return result;
+        }
+        else {
+            var query = wikidataSharedData.query["ShowQualifier"];
+            var result = query.replace('$1$', wikidataSharedData.config.keyword)
+                .replace('$2$', facet.Id)
+                .replace('$3$', facetValue.entityId)
+                .replace('$4$', facet.Id)
+                .replace('$5$', wikidataSharedData.config.languageCode);
+
+            return result;
+        }
     }
 
-    var getFacetValuesQuery=function(facet){
-        var query=wikidataSharedData.query["ShowFacetValue"];
-        var result=query.replace('$1$',wikidataSharedData.config.keyword)
-            .replace('$2$',facet.Id)
-            .replace('$3$',wikidataSharedData.config.limitFacetValue)
-            .replace('$4$',wikidataSharedData.config.languageCode);
-        console.log(result);
-        return result;
+    var getQualifierValueQuery=function(facet,facetValue,facetQualifier){
+        var propertyDataType=wikidataSharedData.mapPropertyDataType[facetQualifier["qProperty"]["entityId"]];
+
+        if(facetValue["text"]=="Any"){
+            if( propertyDataType==wikidataConstant.propertyDataType["Quantity"]
+                || propertyDataType==wikidataConstant.propertyDataType["Time"]){
+
+                var query = wikidataSharedData.query["ShowQualifierValueMinMax_Any"];
+                var result = query.replace('$1$', wikidataSharedData.config.keyword)
+                    .replace('$2$', facet.Id)
+                    .replace('$3$', facetQualifier["qProperty"]["entityId"]);
+                return result;
+            }
+            else{
+                var query = wikidataSharedData.query["ShowQualifierValue_Any"];
+                var result = query.replace('$1$', wikidataSharedData.config.keyword)
+                    .replace('$2$', facet.Id)
+                    .replace('$3$', facetQualifier["qProperty"]["entityId"])
+                    .replace('$4$', wikidataSharedData.config.languageCode);
+                return result;
+            }
+
+        }
     }
-    
-    var showFacetValue = function($event,facet){
-        $event.stopPropagation();
-        var preCalculatedFacets= _.propertyOf(wikidataSharedData.mapClassFacets)(wikidataSharedData.config.keyword);
-        if(preCalculatedFacets){
 
-        }
-        else{
-            var propertyId=facet["Id"];
-            var propertyDataType=wikidataSharedData.mapPropertyDataType[propertyId];
-            facet["fValues"]={};
-            facet["fValues"]["dataType"]=propertyDataType;
-            facet["fValues"]["values"]=[];
-            if(propertyDataType==wikidataConstant.propertyDataType["Quantity"] 
-                || propertyDataType==wikidataConstant.propertyDataType["Time"])
-            {
-                var facetValueMinMaxQuery=getFacetValueMinMaxQuery(facet);
-                wikidataAPI.sendQuery(facetValueMinMaxQuery)
-                    .then(
-                        function(facetValueResult) {
-                            facet["fValues"]["min"]= facetValueResult[0].minFacetValue.value;
-                            facet["fValues"]["max"]= facetValueResult[0].maxFacetValue.value;
-                        }
-                    );
+    var showQualifiers=function(facet,facetValue){
+        var propertyId=facet["Id"];
+        facetValue["fQualifiers"]={};
+        facetValue["fQualifiers"]["isExpand"]=true;
+        facetValue["fQualifiers"]["hasQualifiers"]=[];
+        var facetQualifiersQuery=getQualifierQuery(facet,facetValue);
+        console.log('--------show qualifier query-------');
+        console.log(facetQualifiersQuery);
 
-            }
-            else if( propertyDataType==wikidataConstant.propertyDataType["Url"]
-                || propertyDataType==wikidataConstant.propertyDataType["WikibaseItem"]
-                || propertyDataType==wikidataConstant.propertyDataType["String"]
-                ||propertyDataType==wikidataConstant.propertyDataType["Monolingualtext"])
-            {
-                var facetValueQuery=getFacetValuesQuery(facet);//
-                //add value any
-                var newValueObject={};
-                newValueObject["uri"]="Any";
-                newValueObject["entityId"]="Any";
-                newValueObject["text"]="Any";
-                newValueObject["isAny"]=true;
-                newValueObject["fQualifiers"]={};
-                facet["fValues"]["values"].push(newValueObject);
-                //
-                wikidataAPI.sendQuery(facetValueQuery)
-                    .then(
-                        function(facetValueResult) {
-                            _.each(facetValueResult,function(facetValue){
-                                var valueText=facetValue.facetValue.value;//in format http://wikidata.org/property/P21
-                                var numberFound=facetValue.numberInstances.value;
-                                var newValueObject={};
-                                newValueObject["uri"]=valueText;
-                                newValueObject["entityId"]=utilities.getEntityId(valueText);
-                                newValueObject["text"]=facetValue.facetValueLabel.value;
-                                newValueObject["fQualifiers"]={};
-                                facet["fValues"]["values"].push(newValueObject);
+        wikidataAPI.sendQuery(facetQualifiersQuery).then(function(returnedQualifiersData){
 
-                            });
-                        }
-                    );
+            console.log('----number of qualifier-----');
+            console.log(Object.keys(returnedQualifiersData).length);
 
-            }
-        }
+            _.each(returnedQualifiersData,function(qualifierProperty){
 
+                var propertyDataType=wikidataSharedData.mapPropertyDataType[utilities.getEntityId(qualifierProperty.qualifier.value)];
 
-    };
-    
-    var changeFacetValue =function($event,facet,facetValue){
+                if(propertyDataType==wikidataConstant.propertyDataType["Quantity"]
+                    || propertyDataType==wikidataConstant.propertyDataType["Time"]
+                    || propertyDataType==wikidataConstant.propertyDataType["Url"]
+                    || propertyDataType==wikidataConstant.propertyDataType["String"]
+                    || propertyDataType==wikidataConstant.propertyDataType["Monolingualtext"]
+                    || propertyDataType==wikidataConstant.propertyDataType["WikibaseItem"]){
 
-        if(facetValue.text=="Any"){
-            console.log("Any");
-            $scope.showQualifiers($event,facet,facetValue);
-            $scope.showNextLevel($event,facet);
+                    var newQualifier={};
+                    newQualifier["qProperty"]={};
+                    newQualifier["qProperty"]["uri"]=qualifierProperty.qualifier.value;
+                    newQualifier["qProperty"]["entityId"]=utilities.getEntityId(newQualifier["qProperty"]["uri"]);
+                    newQualifier["qProperty"]["text"]=qualifierProperty.propertyLabel.value;
+                    newQualifier["qInterface"]={};
+                    newQualifier["qInterface"]["iconText"]="+";
+                    newQualifier["qInterface"]["isExpand"]=false;
+                    newQualifier["qInterface"]["isInit"]=true;
 
-        }
-        else{
-            $scope.showQualifiers($event,facet,facetValue);
-            $scope.changeSelectedValue=true;
-
-            //getResults();
-            //getCondition();
-            //showFacetValue($event,facet);
-            //$scope.showQualifiers($event,facet);
-            _.each($scope.facets, function(facet){
-                if(!facet["fProperty"]["isPropertyType"]){
-                    updateFacetNumberInstances(facet);
+                    facetValue["fQualifiers"]["hasQualifiers"].push(newQualifier);
                 }
 
-            });
+            })
+        })
+
+    }
+
+    var showQualifierValue=function(facet,facetValue,facetQualifier){
+        var propertyDataType=wikidataSharedData.mapPropertyDataType[facetQualifier["qProperty"]["entityId"]];
+
+        facetQualifier["qValues"]={};
+        facetQualifier["qValues"]["values"]=[];
+        facetQualifier["qValues"]["dataType"]=propertyDataType;
+
+        facetQualifier["qInterface"]={};
+        facetQualifier["qInterface"]["isExpand"]=true;
+        facetQualifier["qInterface"]["iconText"]='-';
+        
+        var qualifierValueQuery=getQualifierValueQuery(facet,facetValue,facetQualifier);
+        console.log('--qualifier value-----');
+        console.log(qualifierValueQuery);
+
+
+        if( propertyDataType==wikidataConstant.propertyDataType["Quantity"]
+            || propertyDataType==wikidataConstant.propertyDataType["Time"]){
+
+            wikidataAPI.sendQuery(qualifierValueQuery)
+                .then(
+                    function(qualifierValuesResult) {
+                        _.each(qualifierValuesResult,function(qualifierValueResult){
+
+                            facetQualifier["qValues"]["dataType"]=propertyDataType;
+                            facetQualifier["qValues"]["min"]=qualifierValueResult.minQualifierValue.value;
+                            facetQualifier["qValues"]["max"]=qualifierValueResult.maxQualifierValue.value
+
+                        })
+                    }
+                );
         }
+        else{
+            wikidataAPI.sendQuery(qualifierValueQuery)
+                .then(
+                    function(qualifierValuesResult) {
+                        _.each(qualifierValuesResult,function(qualifierValueResult){
+                            var newQualifierValue={};
+                            newQualifierValue["uri"]=qualifierValueResult.qualifierValue.value;
+                            newQualifierValue["entityId"]=utilities.getEntityId(qualifierValueResult.qualifierValue.value);
+                            newQualifierValue["text"]=qualifierValueResult.qualifierValueLabel.value;
+                            facetQualifier["qValues"]["values"].push(newQualifierValue);
+                        })
+                    }
+                );
+        }
+
     }
 
 
     return {
-        showFacetValue: showFacetValue,
-        changeFacetValue: changeFacetValue
+        showQualifiers: showQualifiers,
+        showQualifierValue:showQualifierValue
     }
 
 });

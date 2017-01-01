@@ -22,10 +22,10 @@ gulp.task('scripts',function(){
                     'bower_components/underscore/underscore.js',
                     'bower_components/angular-animate/angular-animate.js',
                     'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-                    'app/app.js',
+                    'app/app.js'/*,
                     'app/Service/*.js',
                     'app/directives/*.js',
-                    'app/controllers/*.js'])
+                    'app/controllers/*.js' */])
         .pipe(concat('index.js'))
         .pipe(gulp.dest('publish'));
 });

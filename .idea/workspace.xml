@@ -5,37 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8839186-94b8-4338-a9c1-91a91ef60161" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SourceCode_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/utilities.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/accorditionController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/myCtrl.js1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/wikidataController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/Index.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/facets.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/propertyDataTypeStatistic.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/storeFile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/test.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/directives/finalTreeViewFacetTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/directives/treeViewFacetTest.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/arrow-left.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/clear.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/createIndex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/finalIndex.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indexTest.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/myCtrl.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SourceCode.iml" afterPath="$PROJECT_DIR$/.idea/SourceCode.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/facetParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/facetValueManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/qualifierManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/wikidataConstant.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/_finalWikidataController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/_wikidataController.jss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacet.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValue.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValueMinMax.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowFacetValue_v0txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowNextLevelClass.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/data/query.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/directives/facetTreeView.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/FirstJasmineExample.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/UsingDirectJasmine.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/boot.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine-html.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/jasmine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test1.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/directives/treeViewFacetTest.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/utilities.js" afterPath="$PROJECT_DIR$/app/Service/utilities.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/wikidataAPI.js" afterPath="$PROJECT_DIR$/app/Service/wikidataAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/treeViewFacet.html" afterPath="$PROJECT_DIR$/app/directives/treeViewFacet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scss/wikidata.scss" afterPath="$PROJECT_DIR$/app/scss/wikidata.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Service/wikidataIndex.js" afterPath="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/wikidataController.js" afterPath="$PROJECT_DIR$/app/controllers/wikidataController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data/facets.json" afterPath="$PROJECT_DIR$/app/data/facets.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/publish/index.css" afterPath="$PROJECT_DIR$/publish/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/publish/index.js" afterPath="$PROJECT_DIR$/publish/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/autoComplete.js" afterPath="$PROJECT_DIR$/app/controllers/autoCompleteController.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/ctTreeView.js" afterPath="$PROJECT_DIR$/app/controllers/_ctTreeView.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/myCtrl.js1" afterPath="$PROJECT_DIR$/app/controllers/_myCtrl.js1" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/finalTreeViewFacetTest.html" afterPath="$PROJECT_DIR$/app/directives/_treeViewFacetTest.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/treeViewFacet.html" afterPath="$PROJECT_DIR$/app/directives/_treeViewFacet.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/finalIndex.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/indexTest.html" afterPath="$PROJECT_DIR$/_indexTest.html" />
     </list>
     <ignored path="SourceCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,18 +64,211 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file leaf-file-name="facets.json" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/data/facets.json">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="238">
+                    <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                    <folding>
+                      <element signature="e#39#176#0" expanded="false" />
+                      <element signature="e#510#1301#0" expanded="false" />
+                      <element signature="e#626#1274#0" expanded="false" />
+                      <element signature="e#1521#3306#0" expanded="false" />
+                      <element signature="e#1975#2333#0" expanded="false" />
+                      <element signature="e#2497#2646#0" expanded="false" />
+                      <element signature="e#2674#3179#0" expanded="false" />
+                      <element signature="e#2803#3161#0" expanded="false" />
+                      <element signature="e#3210#3263#0" expanded="false" />
+                      <element signature="e#3352#3533#0" expanded="false" />
+                      <element signature="e#3552#9084#0" expanded="false" />
+                      <element signature="e#3569#3834#0" expanded="false" />
+                      <element signature="e#3704#3826#0" expanded="false" />
+                      <element signature="e#3908#4075#0" expanded="false" />
+                      <element signature="e#4097#7845#0" expanded="false" />
+                      <element signature="e#4202#7833#0" expanded="false" />
+                      <element signature="e#4447#5400#0" expanded="false" />
+                      <element signature="e#4587#5361#0" expanded="false" />
+                      <element signature="e#5432#7818#0" expanded="false" />
+                      <element signature="e#6200#6624#0" expanded="false" />
+                      <element signature="e#6830#7003#0" expanded="false" />
+                      <element signature="e#7037#7638#0" expanded="false" />
+                      <element signature="e#7190#7614#0" expanded="false" />
+                      <element signature="e#7675#7740#0" expanded="false" />
+                      <element signature="e#7871#8069#0" expanded="false" />
+                      <element signature="e#8128#9069#0" expanded="false" />
+                      <element signature="e#9092#9682#0" expanded="false" />
+                      <element signature="e#9686#11623#0" expanded="false" />
+                      <element signature="e#11627#14136#0" expanded="false" />
+                      <element signature="e#11662#11799#0" expanded="false" />
+                      <element signature="e#11906#12906#0" expanded="false" />
+                      <element signature="e#12105#12896#0" expanded="false" />
+                      <element signature="e#12221#12869#0" expanded="false" />
+                      <element signature="e#13262#13413#0" expanded="false" />
+                      <element signature="e#13811#13864#0" expanded="false" />
+                      <element signature="e#13953#14109#0" expanded="false" />
+                      <element signature="e#14140#16385#0" expanded="false" />
+                      <element signature="e#16389#17114#0" expanded="false" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="SourceCode" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="facetValueManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Service/facetValueManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="88" column="91" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#43#0" expanded="false" />
+                <element signature="e#215#454#0" expanded="false" />
+                <element signature="e#1628#1640#0" expanded="false" />
+                <element signature="e#2087#2556#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facetTreeView.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/directives/facetTreeView.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+              <folding>
+                <element signature="n#div#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initialInterfaceGeneration.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+              <folding>
+                <element signature="e#792#1711#0" expanded="false" />
+                <element signature="e#2031#4681#0" expanded="false" />
+                <element signature="e#4910#5315#0" expanded="false" />
+                <element signature="e#6910#9851#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wikidataAPI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+              <folding>
+                <element signature="e#1241#1886#0" expanded="false" />
+                <element signature="e#1936#2485#0" expanded="false" />
+                <element signature="e#2542#3342#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qShowFacetValue_v0txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue_v0txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wikidataController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/wikidataController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
+              <folding>
+                <element signature="e#3110#3234#0" expanded="false" />
+                <element signature="e#4310#4492#0" expanded="false" />
+                <element signature="e#4783#4845#0" expanded="false" />
+                <element signature="e#5001#5093#0" expanded="false" />
+                <element signature="e#5746#8693#0" expanded="false" />
+                <element signature="e#5890#8464#0" expanded="false" />
+                <element signature="e#5966#8445#0" expanded="false" />
+                <element signature="e#6020#8423#0" expanded="false" />
+                <element signature="e#6194#6330#0" expanded="false" />
+                <element signature="e#6363#6516#0" expanded="false" />
+                <element signature="e#6720#7922#0" expanded="false" />
+                <element signature="e#6823#7890#0" expanded="false" />
+                <element signature="e#7045#7541#0" expanded="false" />
+                <element signature="e#7149#7502#0" expanded="false" />
+                <element signature="e#7227#7460#0" expanded="false" />
+                <element signature="e#7615#7856#0" expanded="false" />
+                <element signature="e#7985#8292#0" expanded="false" />
+                <element signature="e#8514#8679#0" expanded="false" />
+                <element signature="e#9689#9815#0" expanded="false" />
+                <element signature="e#9921#10059#0" expanded="false" />
+                <element signature="e#10598#10731#0" expanded="false" />
+                <element signature="e#10835#10967#0" expanded="false" />
+                <element signature="e#11075#11211#0" expanded="false" />
+                <element signature="e#11324#11465#0" expanded="false" />
+                <element signature="e#11584#11686#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qShowFacet.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/data/qShowFacet.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="101" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qShowFacetValue.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wikidataIndex.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -73,24 +280,51 @@
       <list>
         <option value="$PROJECT_DIR$/createIndex.html" />
         <option value="$PROJECT_DIR$/app/data/test.json" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/directives/treeViewFacet.html" />
         <option value="$PROJECT_DIR$/app/scss/wikidata.scss" />
         <option value="$PROJECT_DIR$/app/controllers/myCtrl.js" />
-        <option value="$PROJECT_DIR$/app/Service/utilities.js" />
-        <option value="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
         <option value="$PROJECT_DIR$/app/data/storeFile" />
-        <option value="$PROJECT_DIR$/app/data/facets.json" />
         <option value="$PROJECT_DIR$/app/controllers/accorditionController.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/app/app.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/indexTest.html" />
-        <option value="$PROJECT_DIR$/app/Service/wikidataAPI.js" />
         <option value="$PROJECT_DIR$/app/directives/treeViewFacetTest.html" />
         <option value="$PROJECT_DIR$/app/data/Index.json" />
-        <option value="$PROJECT_DIR$/app/controllers/wikidataController.js" />
+        <option value="$PROJECT_DIR$/app/directives/finalTreeViewFacetTest.html" />
+        <option value="$PROJECT_DIR$/app/Service/InitInterfaceGeneration.js" />
+        <option value="$PROJECT_DIR$/app/Service/wikidataConstant.js" />
+        <option value="$PROJECT_DIR$/app/controllers/finalWikidataController.js" />
         <option value="$PROJECT_DIR$/finalIndex.html" />
+        <option value="$PROJECT_DIR$/app/controllers/autoCompleteController.js" />
+        <option value="$PROJECT_DIR$/app/Service/utilities.js" />
+        <option value="$PROJECT_DIR$/app/data/query.txt" />
+        <option value="$PROJECT_DIR$/app/Service/wikidataIndex.js" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifier.txt" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/test/test1.js" />
+        <option value="$PROJECT_DIR$/karma.conf.js" />
+        <option value="$PROJECT_DIR$/test/UsingDirectJasmine" />
+        <option value="$PROJECT_DIR$/test/FirstJasmineExample.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifier_Any.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt" />
+        <option value="$PROJECT_DIR$/app/Service/qualifierManager.js" />
+        <option value="$PROJECT_DIR$/app/data/qShowFacetValueMinMax.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowNextLevelClass.txt" />
+        <option value="$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt" />
+        <option value="$PROJECT_DIR$/app/data/qInitializeFacet.txt" />
+        <option value="$PROJECT_DIR$/app/Service/wikidataSharedData.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/Service/facetParser.js" />
+        <option value="$PROJECT_DIR$/app/data/qShowFacet.txt" />
+        <option value="$PROJECT_DIR$/app/data/qShowFacetValue.txt" />
+        <option value="$PROJECT_DIR$/app/data/facets.json" />
+        <option value="$PROJECT_DIR$/app/directives/facetTreeView.html" />
+        <option value="$PROJECT_DIR$/app/Service/facetValueManager.js" />
+        <option value="$PROJECT_DIR$/app/controllers/wikidataController.js" />
+        <option value="$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js" />
+        <option value="$PROJECT_DIR$/app/Service/wikidataAPI.js" />
       </list>
     </option>
   </component>
@@ -108,8 +342,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="738" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -136,6 +372,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -168,65 +406,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SourceCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SourceCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SourceCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SourceCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SourceCodeTestFunction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SHK_elearningDashboard" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="nodejs_interpreter_path" value="C:\Program Files\nodejs\node" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ProjectThesis2\SourceCode\app\directives" />
-      <recent name="D:\ProjectThesis2\SourceCode" />
-      <recent name="D:\ProjectThesis2\SourceCode\app\img" />
-      <recent name="D:\ProjectThesis2\SourceCode\app\data" />
+      <recent name="D:\Project\ProjectThesis2\SourceCode\app\Service" />
+      <recent name="D:\Project\ProjectThesis2\SourceCode\app\data" />
+      <recent name="D:\Project\ProjectThesis2\SourceCode\test\lib" />
+      <recent name="D:\Project\ProjectThesis2\SourceCode\app\controllers" />
       <recent name="D:\ProjectThesis2\SourceCode\app\controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.indexTest.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/index.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="test1.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="test1.js" working-dir="$PROJECT_DIR$/test">
+      <method />
+    </configuration>
+    <configuration default="false" name="FirstJasmineExample.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/test/FirstJasmineExample.html">
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -280,16 +492,34 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/index.html">
+    <configuration default="false" name="_index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/_index.html">
       <method />
     </configuration>
-    <configuration default="false" name="indexTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/indexTest.html">
+    <configuration default="false" name="_indexTest.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/SourceCode/_indexTest.html">
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.indexTest.html" />
+    <configuration default="false" name="Karma Debug" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/karma" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug._index.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug._indexTest.html" />
+      <item index="2" class="java.lang.String" itemvalue="Karma.Karma Debug" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.test1.js" />
+      <item index="5" class="java.lang.String" itemvalue="JavaScript Debug.FirstJasmineExample.html" />
     </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.FirstJasmineExample.html" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.test1.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -342,36 +572,92 @@
       <workItem from="1473168270938" duration="1536000" />
       <workItem from="1473226058447" duration="1053000" />
       <workItem from="1473272056163" duration="1910000" />
-      <workItem from="1474391442307" duration="1029000" />
+      <workItem from="1474391442307" duration="8954000" />
+      <workItem from="1474801197282" duration="1223000" />
+      <workItem from="1474917830307" duration="631000" />
+      <workItem from="1474926035000" duration="2193000" />
+      <workItem from="1475262577550" duration="12242000" />
+      <workItem from="1475398751507" duration="5977000" />
+      <workItem from="1475474779121" duration="5026000" />
+      <workItem from="1476757222739" duration="1301000" />
+      <workItem from="1476932088774" duration="2799000" />
+      <workItem from="1477125759750" duration="1198000" />
+      <workItem from="1477166069569" duration="2480000" />
+      <workItem from="1477334812639" duration="16614000" />
+      <workItem from="1477424862565" duration="3647000" />
+      <workItem from="1477504128709" duration="13323000" />
+      <workItem from="1477593980813" duration="1401000" />
+      <workItem from="1477769129569" duration="1196000" />
+      <workItem from="1477967999696" duration="244000" />
+      <workItem from="1481973375199" duration="1325000" />
+      <workItem from="1482681654261" duration="616000" />
+      <workItem from="1482682474816" duration="160000" />
+      <workItem from="1482682710606" duration="39229000" />
+      <workItem from="1482850063525" duration="28793000" />
+      <workItem from="1482950681871" duration="12708000" />
+      <workItem from="1483024351758" duration="4322000" />
+      <workItem from="1483085470654" duration="5241000" />
+      <workItem from="1483110968501" duration="9927000" />
+      <workItem from="1483141774735" duration="6159000" />
+      <workItem from="1483208785214" duration="6745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183615000" />
+    <option name="totallyTimeSpent" value="378260000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="738" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26650563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16859505" sideWeight="0.35748792" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2001488" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16859505" sideWeight="0.35735965" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16859505" sideWeight="0.6425121" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05958132" sideWeight="0.64264035" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3988764" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.49046105" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22120866" sideWeight="0.49046105" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16859505" sideWeight="0.35735965" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05958132" sideWeight="0.64264035" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23767886" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22120866" sideWeight="0.49046105" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3988764" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -386,238 +672,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/test1.js</url>
+          <line>3</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Service/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/myCtrl.js1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/treeViewFacet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/myCtrl.js1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/wikidata.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ctTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/treeViewFacet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/myCtrl.js1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/wikidata.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ctTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/treeViewFacet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/myCtrl.js1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="254" column="3" selection-start-line="254" selection-start-column="3" selection-end-line="254" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ctTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/img/clear.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ctTreeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/autoComplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/publish/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1142298">
-          <caret line="66436" column="0" selection-start-line="66436" selection-start-column="0" selection-end-line="66436" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/wikidata.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/myCtrl.js1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="96" column="48" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/propertyDataTypeStatistic.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="0" column="49643" selection-start-line="0" selection-start-column="49640" selection-end-line="0" selection-end-column="49643" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/data/storeFile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -625,7 +691,225 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/img/arrow-left.svg">
+    <entry file="file://$PROJECT_DIR$/app/data/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/Index.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/propertyDataTypeStatistic.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7055">
+          <caret line="0" column="49643" selection-start-line="0" selection-start-column="49640" selection-end-line="0" selection-end-column="49643" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/query.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/node_example/spec/helpers/jasmine_examples/SpecHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/node_example/spec/jasmine_examples/PlayerSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/spec/PlayerSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/spec/SpecHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/src/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/example/src/Song.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1819">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/lib/boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/UsingDirectJasmine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="37" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/FirstJasmineExample.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/autoCompleteController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifierValue_Any.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifierValueMinMax_Any.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="50" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier_Any.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValueMinMax.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowQualifier.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="2" selection-start-line="15" selection-start-column="5" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowNextLevelClass.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/qualifierManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="75" column="92" selection-start-line="75" selection-start-column="92" selection-end-line="75" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/_treeViewFacetTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/_treeViewFacet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qInitializeFacetNextLevel.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataSharedData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/facetParser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/underscore/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="1297" column="32" selection-start-line="1297" selection-start-column="32" selection-end-line="1297" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -634,252 +918,224 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="62" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular-bootstrap/ui-bootstrap-tpls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="195" column="24" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular-bootstrap/ui-bootstrap-csp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="27" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/accorditionController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="289">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="289">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
+    <entry file="file://$PROJECT_DIR$/publish/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="60" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+        <state relative-caret-position="1626">
+          <caret line="73083" column="40" selection-start-line="73083" selection-start-column="40" selection-end-line="73083" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/Index.json">
+    <entry file="file://$PROJECT_DIR$/app/controllers/_finalWikidataController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/_ctTreeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1191">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Phân tích Business Intelligence dựa trên Big Data.URL">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue_v0txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowFacet.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="101" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/qShowFacetValue.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/facetValueManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="88" column="91" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
           <folding>
-            <element signature="e#19#1535#0" expanded="false" />
+            <element signature="e#0#43#0" expanded="false" />
+            <element signature="e#215#454#0" expanded="false" />
+            <element signature="e#1628#1640#0" expanded="false" />
+            <element signature="e#2087#2556#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/facets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#39#176#0" expanded="false" />
+            <element signature="e#510#1301#0" expanded="false" />
+            <element signature="e#626#1274#0" expanded="false" />
+            <element signature="e#1521#3306#0" expanded="false" />
+            <element signature="e#1975#2333#0" expanded="false" />
+            <element signature="e#2497#2646#0" expanded="false" />
+            <element signature="e#2674#3179#0" expanded="false" />
+            <element signature="e#2803#3161#0" expanded="false" />
+            <element signature="e#3210#3263#0" expanded="false" />
+            <element signature="e#3352#3533#0" expanded="false" />
+            <element signature="e#3552#9084#0" expanded="false" />
+            <element signature="e#3569#3834#0" expanded="false" />
+            <element signature="e#3704#3826#0" expanded="false" />
+            <element signature="e#3908#4075#0" expanded="false" />
+            <element signature="e#4097#7845#0" expanded="false" />
+            <element signature="e#4202#7833#0" expanded="false" />
+            <element signature="e#4447#5400#0" expanded="false" />
+            <element signature="e#4587#5361#0" expanded="false" />
+            <element signature="e#5432#7818#0" expanded="false" />
+            <element signature="e#6200#6624#0" expanded="false" />
+            <element signature="e#6830#7003#0" expanded="false" />
+            <element signature="e#7037#7638#0" expanded="false" />
+            <element signature="e#7190#7614#0" expanded="false" />
+            <element signature="e#7675#7740#0" expanded="false" />
+            <element signature="e#7871#8069#0" expanded="false" />
+            <element signature="e#8128#9069#0" expanded="false" />
+            <element signature="e#9092#9682#0" expanded="false" />
+            <element signature="e#9686#11623#0" expanded="false" />
+            <element signature="e#11627#14136#0" expanded="false" />
+            <element signature="e#11662#11799#0" expanded="false" />
+            <element signature="e#11906#12906#0" expanded="false" />
+            <element signature="e#12105#12896#0" expanded="false" />
+            <element signature="e#12221#12869#0" expanded="false" />
+            <element signature="e#13262#13413#0" expanded="false" />
+            <element signature="e#13811#13864#0" expanded="false" />
+            <element signature="e#13953#14109#0" expanded="false" />
+            <element signature="e#14140#16385#0" expanded="false" />
+            <element signature="e#16389#17114#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/facetTreeView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+          <folding>
+            <element signature="n#div#1;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/wikidataController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="297" column="29" selection-start-line="297" selection-start-column="29" selection-end-line="297" selection-end-column="29" />
+        <state relative-caret-position="272">
+          <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
           <folding>
-            <element signature="e#169#425#0" expanded="false" />
-            <element signature="e#1431#2369#0" expanded="false" />
-            <element signature="e#1518#2357#0" expanded="false" />
-            <element signature="e#1968#2251#0" expanded="false" />
-            <element signature="e#2585#5373#0" expanded="false" />
-            <element signature="e#2661#5349#0" expanded="false" />
-            <element signature="e#3392#5323#0" expanded="false" />
-            <element signature="e#3661#3772#0" expanded="false" />
-            <element signature="e#4752#5258#0" expanded="false" />
-            <element signature="e#5022#5141#0" expanded="false" />
-            <element signature="e#5411#5505#0" expanded="false" />
-            <element signature="e#5622#6022#0" expanded="false" />
-            <element signature="e#6065#6110#0" expanded="false" />
-            <element signature="e#6161#7917#0" expanded="false" />
-            <element signature="e#6477#7909#0" expanded="false" />
-            <element signature="e#6548#7898#0" expanded="false" />
-            <element signature="e#7384#7863#0" expanded="false" />
-            <element signature="e#7651#7768#0" expanded="false" />
-            <element signature="e#7990#8407#0" expanded="false" />
-            <element signature="e#8107#8194#0" expanded="false" />
-            <element signature="e#8207#8401#0" expanded="false" />
-            <element signature="e#8317#8390#0" expanded="false" />
-            <element signature="e#8471#8833#0" expanded="false" />
-            <element signature="e#8569#8600#0" expanded="false" />
-            <element signature="e#8693#8825#0" expanded="false" />
-            <element signature="e#8748#8814#0" expanded="false" />
-            <element signature="e#8912#8941#0" expanded="false" />
-            <element signature="e#8976#9006#0" expanded="false" />
-            <element signature="e#9696#9737#0" expanded="false" />
-            <element signature="e#9800#9888#0" expanded="false" />
-            <element signature="e#9931#10106#0" expanded="false" />
-            <element signature="e#10166#10348#0" expanded="false" />
-            <element signature="e#10379#10878#0" expanded="false" />
-            <element signature="e#10546#10608#0" expanded="false" />
-            <element signature="e#10764#10856#0" expanded="false" />
-            <element signature="e#12506#12862#0" expanded="false" />
-            <element signature="e#13534#14061#0" expanded="false" />
-            <element signature="e#14096#16807#0" expanded="false" />
-            <element signature="e#14248#16196#0" expanded="false" />
-            <element signature="e#14486#16186#0" expanded="false" />
-            <element signature="e#14507#14981#0" expanded="false" />
-            <element signature="e#14583#14798#0" expanded="false" />
-            <element signature="e#14637#14776#0" expanded="false" />
-            <element signature="e#14847#14962#0" expanded="false" />
-            <element signature="e#15008#15065#0" expanded="false" />
-            <element signature="e#15102#16086#0" expanded="false" />
-            <element signature="e#15188#16066#0" expanded="false" />
-            <element signature="e#15326#15615#0" expanded="false" />
-            <element signature="e#15388#15589#0" expanded="false" />
-            <element signature="e#15677#16044#0" expanded="false" />
-            <element signature="e#16113#16170#0" expanded="false" />
-            <element signature="e#16347#16414#0" expanded="false" />
-            <element signature="e#16459#16530#0" expanded="false" />
-            <element signature="e#16858#17208#0" expanded="false" />
-            <element signature="e#17250#17511#0" expanded="false" />
-            <element signature="e#17549#17630#0" expanded="false" />
-            <element signature="e#17839#17851#0" expanded="false" />
-            <element signature="e#18411#18626#0" expanded="false" />
-            <element signature="e#19040#20790#0" expanded="false" />
-            <element signature="e#19114#20762#0" expanded="false" />
-            <element signature="e#19670#20559#0" expanded="false" />
-            <element signature="e#19931#20485#0" expanded="false" />
-            <element signature="e#20231#20367#0" expanded="false" />
-            <element signature="e#20627#20732#0" expanded="false" />
-            <element signature="e#20906#23608#0" expanded="false" />
-            <element signature="e#20916#22049#0" expanded="false" />
-            <element signature="e#22332#23587#0" expanded="false" />
-            <element signature="e#22413#23568#0" expanded="false" />
-            <element signature="e#22994#23519#0" expanded="false" />
-            <element signature="e#23290#23411#0" expanded="false" />
-            <element signature="e#23641#26080#0" expanded="false" />
-            <element signature="e#23787#25735#0" expanded="false" />
-            <element signature="e#24025#25725#0" expanded="false" />
-            <element signature="e#24046#24520#0" expanded="false" />
-            <element signature="e#24122#24337#0" expanded="false" />
-            <element signature="e#24176#24315#0" expanded="false" />
-            <element signature="e#24386#24501#0" expanded="false" />
-            <element signature="e#24547#24604#0" expanded="false" />
-            <element signature="e#24641#25625#0" expanded="false" />
-            <element signature="e#24727#25605#0" expanded="false" />
-            <element signature="e#24865#25154#0" expanded="false" />
-            <element signature="e#24927#25128#0" expanded="false" />
-            <element signature="e#25216#25583#0" expanded="false" />
-            <element signature="e#25652#25709#0" expanded="false" />
-            <element signature="e#25779#25840#0" expanded="false" />
-            <element signature="e#25885#25950#0" expanded="false" />
-            <element signature="e#26369#28611#0" expanded="false" />
-            <element signature="e#26535#28603#0" expanded="false" />
-            <element signature="e#27154#28593#0" expanded="false" />
-            <element signature="e#27343#27422#0" expanded="false" />
-            <element signature="e#28172#28560#0" expanded="false" />
-            <element signature="e#28388#28475#0" expanded="false" />
-            <element signature="e#28651#28713#0" expanded="false" />
-            <element signature="e#28765#29227#0" expanded="false" />
-            <element signature="e#29118#29218#0" expanded="false" />
-            <element signature="e#29359#29843#0" expanded="false" />
-            <element signature="e#29439#29501#0" expanded="false" />
-            <element signature="e#29607#29676#0" expanded="false" />
-            <element signature="e#29697#29837#0" expanded="false" />
-            <marker date="1470310496732" expanded="false" signature="21328:22003" placeholder="{...}" />
-            <marker date="1470310496732" expanded="false" signature="21469:21987" placeholder="{...}" />
-            <marker date="1470310496732" expanded="false" signature="21722:21905" placeholder="{...}" />
+            <element signature="e#3110#3234#0" expanded="false" />
+            <element signature="e#4310#4492#0" expanded="false" />
+            <element signature="e#4783#4845#0" expanded="false" />
+            <element signature="e#5001#5093#0" expanded="false" />
+            <element signature="e#5746#8693#0" expanded="false" />
+            <element signature="e#5890#8464#0" expanded="false" />
+            <element signature="e#5966#8445#0" expanded="false" />
+            <element signature="e#6020#8423#0" expanded="false" />
+            <element signature="e#6194#6330#0" expanded="false" />
+            <element signature="e#6363#6516#0" expanded="false" />
+            <element signature="e#6720#7922#0" expanded="false" />
+            <element signature="e#6823#7890#0" expanded="false" />
+            <element signature="e#7045#7541#0" expanded="false" />
+            <element signature="e#7149#7502#0" expanded="false" />
+            <element signature="e#7227#7460#0" expanded="false" />
+            <element signature="e#7615#7856#0" expanded="false" />
+            <element signature="e#7985#8292#0" expanded="false" />
+            <element signature="e#8514#8679#0" expanded="false" />
+            <element signature="e#9689#9815#0" expanded="false" />
+            <element signature="e#9921#10059#0" expanded="false" />
+            <element signature="e#10598#10731#0" expanded="false" />
+            <element signature="e#10835#10967#0" expanded="false" />
+            <element signature="e#11075#11211#0" expanded="false" />
+            <element signature="e#11324#11465#0" expanded="false" />
+            <element signature="e#11584#11686#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/initialInterfaceGeneration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          <folding>
+            <element signature="e#792#1711#0" expanded="false" />
+            <element signature="e#2031#4681#0" expanded="false" />
+            <element signature="e#4910#5315#0" expanded="false" />
+            <element signature="e#6910#9851#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Service/wikidataAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        <state relative-caret-position="221">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="e#1241#1886#0" expanded="false" />
+            <element signature="e#1936#2485#0" expanded="false" />
+            <element signature="e#2542#3342#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/indexTest.html">
+    <entry file="file://$PROJECT_DIR$/app/Service/wikidataIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-          <folding>
-            <element signature="n#md-autocomplete#0;n#form#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#md-item-template#0;n#md-autocomplete#0;n#form#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#md-not-found#0;n#md-autocomplete#0;n#form#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1470125122373" expanded="false" signature="3577:6935" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/treeViewFacet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="236">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/treeViewFacetTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding>
-            <element signature="n#li#1;n#div#1;n#ul#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/finalIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/finalTreeViewFacetTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/facets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-          <folding>
-            <element signature="e#38#185#0" expanded="false" />
-            <element signature="e#201#415#0" expanded="false" />
-            <element signature="e#434#590#0" expanded="false" />
-            <element signature="e#598#2535#0" expanded="false" />
-            <element signature="e#632#760#0" expanded="false" />
-            <element signature="e#776#1009#0" expanded="false" />
-            <element signature="e#1029#2311#0" expanded="false" />
-            <element signature="e#2330#2508#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

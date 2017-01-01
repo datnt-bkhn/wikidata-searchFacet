@@ -1,4 +1,5 @@
-app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
+app.controller('autoCompleteController', function($scope,$http,$log,wikidataAPI,wikidataSharedData,config) {
+
 
     $scope.init = function () {
 
@@ -8,12 +9,9 @@ app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
 
     }
     $scope.init();
-    $scope.config=config;
+    //$scope.config=config;
 
     function querySearch (query) {
-        //var results = query ? $scope.states.filter( createFilterFor(query) ) : $scope.states ;
-        //return results;
-
         return wikidataAPI.getSuggestion(query,'en')
                 .then(function(suggestionResult){
                     return suggestionResult.map(function(suggestion){
@@ -35,7 +33,8 @@ app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
     }
     function selectedItemChange(item) {
         $log.info('Item changed to ' + JSON.stringify(item));
-        $scope.config.keyword=item.id;
+        //$scope.config.keyword=item.id;
+        wikidataSharedData.config.keyword=item.id;
     }
 
 });

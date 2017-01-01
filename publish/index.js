@@ -72645,21 +72645,332 @@ app.factory('config',function(){
     }
 })
 /**
+ * Created by tintin on 10/26/2016.
+ */
+
+app.factory('facetValueManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData) {
+
+    var getFacetValueMinMaxQuery=function(facet){
+        var query='select (min(?facetValue) as ?minFacetValue) (max(?facetValue) as ?maxFacetValue) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ wikidataSharedData.config.keyword +'. \
+            ?item wdt:'+ facet.Id + ' ?facetValue. \
+            filter isLiteral(?facetValue). \
+        }';
+        return query;
+    }
+
+    var getFacetValuesQuery=function(facet){
+        var query=wikidataSharedData.query["ShowFacetValue"];
+        var result=query.replace('$1$',wikidataSharedData.config.keyword)
+            .replace('$2$',facet.Id)
+            .replace('$3$',wikidataSharedData.config.limitFacetValue)
+            .replace('$4$',wikidataSharedData.config.languageCode);
+        console.log(result);
+        return result;
+    }
+    
+    var showFacetValue = function($event,facet){
+        $event.stopPropagation();
+        var preCalculatedFacets= _.propertyOf(wikidataSharedData.mapClassFacets)(wikidataSharedData.config.keyword);
+        if(preCalculatedFacets){
+
+        }
+        else{
+            var propertyId=facet["Id"];
+            var propertyDataType=wikidataSharedData.mapPropertyDataType[propertyId];
+            facet["fValues"]={};
+            facet["fValues"]["dataType"]=propertyDataType;
+            facet["fValues"]["values"]=[];
+            if(propertyDataType==wikidataConstant.propertyDataType["Quantity"] 
+                || propertyDataType==wikidataConstant.propertyDataType["Time"])
+            {
+                var facetValueMinMaxQuery=getFacetValueMinMaxQuery(facet);
+                wikidataAPI.sendQuery(facetValueMinMaxQuery)
+                    .then(
+                        function(facetValueResult) {
+                            facet["fValues"]["min"]= facetValueResult[0].minFacetValue.value;
+                            facet["fValues"]["max"]= facetValueResult[0].maxFacetValue.value;
+                        }
+                    );
+
+            }
+            else if( propertyDataType==wikidataConstant.propertyDataType["Url"]
+                || propertyDataType==wikidataConstant.propertyDataType["WikibaseItem"]
+                || propertyDataType==wikidataConstant.propertyDataType["String"]
+                ||propertyDataType==wikidataConstant.propertyDataType["Monolingualtext"])
+            {
+                var facetValueQuery=getFacetValuesQuery(facet);//
+                //add value any
+                var newValueObject={};
+                newValueObject["uri"]="Any";
+                newValueObject["entityId"]="Any";
+                newValueObject["text"]="Any";
+                newValueObject["isAny"]=true;
+                newValueObject["fQualifiers"]={};
+                facet["fValues"]["values"].push(newValueObject);
+                //
+                wikidataAPI.sendQuery(facetValueQuery)
+                    .then(
+                        function(facetValueResult) {
+                            _.each(facetValueResult,function(facetValue){
+                                var valueText=facetValue.facetValue.value;//in format http://wikidata.org/property/P21
+                                var numberFound=facetValue.numberInstances.value;
+                                var newValueObject={};
+                                newValueObject["uri"]=valueText;
+                                newValueObject["entityId"]=utilities.getEntityId(valueText);
+                                newValueObject["text"]=facetValue.facetValueLabel.value;
+                                newValueObject["fQualifiers"]={};
+                                facet["fValues"]["values"].push(newValueObject);
+
+                            });
+                        }
+                    );
+
+            }
+        }
+
+
+    };
+    
+    var changeFacetValue =function($event,facet,facetValue){
+
+        if(facetValue.text=="Any"){
+            console.log("Any");
+            $scope.showQualifiers($event,facet,facetValue);
+            $scope.showNextLevel($event,facet);
+
+        }
+        else{
+            $scope.showQualifiers($event,facet,facetValue);
+            $scope.changeSelectedValue=true;
+
+            //getResults();
+            //getCondition();
+            //showFacetValue($event,facet);
+            //$scope.showQualifiers($event,facet);
+            _.each($scope.facets, function(facet){
+                if(!facet["fProperty"]["isPropertyType"]){
+                    updateFacetNumberInstances(facet);
+                }
+
+            });
+        }
+    }
+
+
+    return {
+        showFacetValue: showFacetValue,
+        changeFacetValue: changeFacetValue
+    }
+
+});
+app.factory('initialInterfaceGeneration', function($http,wikidataAPI,wikidataConstant,wikidataSharedData) {
+
+    var getInitInterfaceQuery=function(typeId){
+        var query='Select ?facet ?propertyLabel (count (?facet) as ?numberFound) \
+            where { \
+             hint:Query hint:optimizer "None" . \
+            { select distinct ?item  where { ?item wdt:P31 wd:'+typeId + '. } limit ' + wikidataSharedData.config.limitInstances + '  } \
+            ?item ?facet ?value. \
+             ?property wikibase:claim ?facet \
+             SERVICE wikibase:label { \
+                    bd:serviceParam wikibase:language "' + wikidataSharedData.config.languageCode+'" . \
+                }\
+             } \
+            group by ?facet ?propertyLabel \
+            order by DESC (?numberFound) \
+            limit ' + wikidataSharedData.config.limitFacets;
+        return query;
+    };
+    
+    var generateInterface = function(typeId){
+        var preCalculatedFacets= _.propertyOf(wikidataSharedData.mapClassFacets)(wikidataSharedData.config.keyword);
+        if(preCalculatedFacets){
+            _.each(preCalculatedFacets,function(facet){
+                var newFacet={};
+                newFacet.text=facet.P;
+                newFacet.fullLink=facet.P;
+                newFacet.abbrLink=facet.P;
+                newFacet.number=facet.Pc;
+                newFacet.id=facet.P;
+                newFacet.isExpand=false;
+                newFacet.iconText='+';
+                newFacet.isFirstInit=true;
+                newFacet.value=[];
+                _.each(facet.Pv, function(facetValue){
+                    var newFacetValue={};
+                    newFacetValue.text=facetValue.V;
+                    newFacetValue.abbrLink=facetValue.V;
+                    newFacetValue.number=facetValue.Vc;
+                    newFacet.value.push(newFacetValue);
+                });
+                //console.log(newFacet.id);
+                wikidataSharedData.facets.push(newFacet);
+            });
+        }
+        else {
+            var initInterfaceQuery = getInitInterfaceQuery(typeId);
+            wikidataAPI.sendQuery(initInterfaceQuery)
+                .then(
+                    function (facetPropertyResult) {
+                        _.each(facetPropertyResult, function (facetProperty) {
+                            var propertyUri = facetProperty.facet.value;//in format http://wikidata.org/property/P21
+                            var numberFound = facetProperty.numberFound.value;
+                            var propertyId = propertyUri.substring(propertyUri.lastIndexOf("/") + 1, propertyUri.length);
+                            if (wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["WikibaseItem"]
+                                || wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["Url"]
+                                || wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["String"]
+                                || wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["Quantity"]
+                                || wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["Time"]
+                                || wikidataSharedData.mapPropertyDataType[propertyId] == wikidataConstant.propertyDataType["Monolingualtext"]) {
+                                var newObject = {};
+                                newObject["Id"] = propertyId;
+                                //for fProperty
+                                var fPropertyObject = {};
+                                if (propertyId == "P31") {
+                                    fPropertyObject["isPropertyType"] = true;
+                                }
+                                else fPropertyObject["isPropertyType"] = false;
+                                fPropertyObject["uri"] = propertyUri;
+                                fPropertyObject["entityId"] = propertyId;
+                                fPropertyObject["text"] = facetProperty.propertyLabel.value;
+                                newObject["fProperty"] = fPropertyObject;
+                                //for fInterface
+                                var fInterfaceObject = {};
+                                fInterfaceObject["iconText"] = "+";
+                                fInterfaceObject["isExpand"] = false;
+                                fInterfaceObject["isInit"] = true;
+                                fInterfaceObject["numberItems"] = numberFound;
+                                newObject["fInterface"] = fInterfaceObject;
+                                wikidataSharedData.facets.push(newObject);
+                            }
+                        });
+                        //return;
+                    },
+                    function (error) {
+                        console.log('error initInterfaceQuery' + error);
+                    }
+                );
+        }
+    }
+
+    return {
+        generateInterface: generateInterface
+    }
+
+});
+app.factory('qualifierManager', function($http,utilities,wikidataAPI,wikidataConstant,wikidataSharedData) {
+
+
+    var getQualifierQuery=function(facet,facetValue){
+        var query="";
+        if(facetValue["text"]=="Any"){
+            query='select ?qualifier (count(?qualifier) as ?countQualifier) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId + '. \
+            ?item p:'+ facet["Id"] + ' ?statement. \
+            ?statement ps:' + facet["Id"] + ' wd:' + facetValue["entityId"] +'.\
+            ?statement ?qualifier ?qualifierValue. \
+            '+ $scope.conditionQuery+' \
+            filter strstarts(str(?qualifier),"http://www.wikidata.org/prop/qualifier/P") \
+        } \
+        group by (?qualifier) \
+        order by DESC(?countQualifier) \
+        limit 10' ;
+
+        }
+        else {
+            var query = wikidataSharedData.query["ShowQualifier"];
+            var result = query.replace('$1$', wikidataSharedData.config.keyword)
+                .replace('$2$', facet.Id)
+                .replace('$3$', facetValue.entityId)
+                .replace('$4$', facet.Id)
+                .replace('$5$', wikidataSharedData.config.languageCode);
+            console.log(result);
+            return result;
+        }
+    }
+
+    var getQualifierValueQuery=function(facetQualifier,facet){
+
+        var query='select ?qualifierValue (count(?qualifierValue) as ?numberFound) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId + '. \
+            ?item p:'+ facet["Id"] + ' ?statement. \
+            ?statement pq:' + facetQualifier["qProperty"]["entityId"] +' ?qualifierValue. \
+            '+ $scope.conditionQuery+' \
+        } \
+        group by (?qualifierValue) \
+        order by DESC(?qualifierValue) \
+        limit 10' ;
+        $scope.runningQuery=query;
+        return query;
+    }
+
+    var showQualifiers=function(facet,facetValue){
+        var propertyId=facet["Id"];
+        facetValue["fQualifiers"]={};
+        facetValue["fQualifiers"]["isExpand"]=true;
+        facetValue["fQualifiers"]["hasQualifiers"]=[];
+        var facetQualifiersQuery=getQualifierQuery(facet,facetValue);
+        wikidataAPI.sendQuery(facetQualifiersQuery).then(function(returnedQualifiersData){
+           console.log('number of qualifier'+Object.keys(returnedQualifiersData).length);
+            _.each(returnedQualifiersData,function(qualifierProperty){
+                var newQualifier={};
+                newQualifier["qProperty"]={};
+                newQualifier["qProperty"]["uri"]=qualifierProperty.qualifier.value;
+                newQualifier["qProperty"]["entityId"]=utilities.getEntityId(newQualifier["qProperty"]["uri"]);
+                newQualifier["qProperty"]["text"]=qualifierProperty.propertyLabel.value;
+                newQualifier["qInterface"]={};
+                newQualifier["qInterface"]["iconText"]="+";
+                newQualifier["qInterface"]["isExpand"]=false;
+                newQualifier["qInterface"]["isInit"]=true;
+
+                facetValue["fQualifiers"]["hasQualifiers"].push(newQualifier);
+            })
+        })
+
+    }
+
+    return {
+        showQualifiers: showQualifiers
+    }
+
+});
+/**
  * Created by tintin on 6/16/2016.
  */
 
 app.factory('utilities', function($http) {
+
+    var getFacets=function(){
+        var urlFacetFile = 'app/data/facets.json';
+
+        return $http.get(urlFacetFile).then(function(content) {
+            return content.data;
+        }, function(error){
+            throw "error in loading file facets";
+        });
+    }
+
+    var getEntityId=function(entity){
+        return entity.substring(entity.lastIndexOf("/")+1,entity.length);
+    }
+
+    var getCondition=function(){
+
+    }
+
+
     return {
         //get facets model
-        getFacets: function(){
-            var urlFacetFile = 'app/data/facets.json';
-
-            return $http.get(urlFacetFile).then(function(content) {
-                return content.data;
-            }, function(error){
-                    throw "error in loading file facets";
-            });
-        }
+        getFacets: getFacets,
+        getEntityId: getEntityId,
+        getCondition: getCondition
     }
 
 });
@@ -72737,6 +73048,18 @@ app.factory('wikidataAPI', function($http) {
     }
 
 });
+app.factory('wikidataConstant',function(){
+    return {
+        propertyDataType: {
+            "WikibaseItem":"WikibaseItem",
+            "Url":"Url",
+            "String":"String",
+            "Quantity":"Quantity",
+            "Time":"Time",
+            "Monolingualtext":"Monolingualtext"
+        }
+    }
+})
 /**
  * Created by tintin on 6/16/2016.
  */
@@ -72760,10 +73083,38 @@ app.factory('wikidataIndex', function($http) {
             }, function(error){
                 throw "error in loading file property data type";
             });
+        },
+        //get content file
+        getQuery: function(queryFile){
+            var urlFacetFile = 'app/data/'+ queryFile;
+
+            return $http.get(urlFacetFile).then(function(content) {
+                return content.data;
+            }, function(error){
+                throw "error in loading file property data type";
+            });
         }
     }
 
 });
+app.factory('wikidataSharedData',function(){
+    return {
+        mapPropertyDataType: {},//to look up data type of property from id
+        mapClassFacets:{},//to store facets of class which has many instances, for example Human
+        facets:[],//facets to show in the interface
+        config:{ //config parameter for system
+            keyword: '',
+            languageCode: 'en',
+            limitInstances: 3000,
+            limitFacets: 20,
+            limitFacetValue:10,
+            
+        },
+        query:{
+            ShowFacetValue:''
+        }
+    }
+})
 app.controller('AccordionDemoCtrl', function ($scope) {
     $scope.oneAtATime = true;
 
@@ -72791,7 +73142,8 @@ app.controller('AccordionDemoCtrl', function ($scope) {
         isFirstDisabled: false
     };
 });
-app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
+app.controller('autoCompleteController', function($scope,$http,$log,wikidataAPI,wikidataSharedData,config) {
+
 
     $scope.init = function () {
 
@@ -72801,12 +73153,9 @@ app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
 
     }
     $scope.init();
-    $scope.config=config;
+    //$scope.config=config;
 
     function querySearch (query) {
-        //var results = query ? $scope.states.filter( createFilterFor(query) ) : $scope.states ;
-        //return results;
-
         return wikidataAPI.getSuggestion(query,'en')
                 .then(function(suggestionResult){
                     return suggestionResult.map(function(suggestion){
@@ -72828,7 +73177,682 @@ app.controller('autoComplete', function($scope,$http,$log,wikidataAPI,config) {
     }
     function selectedItemChange(item) {
         $log.info('Item changed to ' + JSON.stringify(item));
-        $scope.config.keyword=item.id;
+        //$scope.config.keyword=item.id;
+        wikidataSharedData.config.keyword=item.id;
+    }
+
+});
+
+
+app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config,
+                                              wikidataIndex,utilities,wikidataSharedData,initialInterfaceGeneration,
+                                                facetValueManager,qualifierManager) {
+    $scope.keyword = "human";
+    $scope.search=function(){
+        //var query ="select ?u where {?u wdt:P31 wd:Q5.} limit 100";
+        var query='select ?u ?uLabel where {wd:Q5 wdt:P1963 ?u .  SERVICE wikibase:label {bd:serviceParam wikibase:language "en" .}} limit 10 offset 1';
+        sendQuery(query);
+    }
+
+    $scope.results=[];
+    $scope.numberResults=0;
+    var numberResultsQuery="";
+
+
+    $scope.facets=[];
+    $scope.changeSelectedValue=false;
+    $scope.conditionQuery=""//convert selected value in facet to condition
+    $scope.type="http://www.wikidata.org/entity/Q4022";
+
+    $scope.language="en";
+    $scope.limitFacets=50;
+    $scope.limitInstances=10000;
+
+    $scope.numberFacetValues=10;//number of facet values are shown at the first time
+    $scope.numberNextFacetValues=5;//number of facet values are shown next time.
+    $scope.config=config;
+
+    $scope.typeId=$scope.config.keyword;
+
+    $scope.runningQuery="";
+    $scope.indexData={};
+    $scope.propertyDataType={};
+
+    $scope.generateInitInterface =function() {
+        $scope.type = "http://www.wikidata.org/entity/" + $scope.config.keyword;
+        $scope.typeId = $scope.config.keyword;
+        $scope.facets = [];
+
+
+        $scope.facets = wikidataSharedData.facets;
+        initialInterfaceGeneration.generateInterface(wikidataSharedData.config.keyword);
+
+
+        //getResults();
+
+    }
+
+    $scope.showHideFacet=function($event,facet){
+        $event.stopPropagation();
+        var fInterface=facet.fInterface;
+        if(fInterface.isExpand){
+            fInterface.isExpand=false;
+            fInterface.iconText='+';
+        }
+        else{
+            fInterface.isExpand=true;
+            fInterface.iconText='-';
+            //if(fInterface.isInit){
+            facetValueManager.showFacetValue($event,facet);
+            //}
+
+        }
+    }
+
+    $scope.changeFacetValue =function($event,facet,facetValue){
+
+        if(facetValue.text=="Any"){
+            console.log("Any");
+            $scope.showQualifiers($event,facet,facetValue);
+            $scope.showNextLevel($event,facet);
+
+        }
+        else{
+            qualifierManager.showQualifiers(facet,facetValue);
+            $scope.changeSelectedValue=true;
+
+            //getResults();
+            //getCondition();
+            //showFacetValue($event,facet);
+            //$scope.showQualifiers($event,facet);
+            _.each($scope.facets, function(facet){
+                if(!facet["fProperty"]["isPropertyType"]){
+                    updateFacetNumberInstances(facet);
+                }
+
+            });
+        }
+    }
+
+    $scope.showQualifiers=function ($event,facet,facetValue){
+        $event.stopPropagation();
+        qualifierManager.showQualifiers(facet,facetValue);
+    }
+
+    $scope.showHideQualifierValue=function($event,facetQualifier,facet){
+        $event.stopPropagation();
+        var qInterface=facetQualifier.qInterface;
+        if(qInterface.isExpand){
+            qInterface.isExpand=false;
+            qInterface.iconText='+';
+        }
+        else{
+            qInterface.isExpand=true;
+            qInterface.iconText='-';
+            if(qInterface.isInit){
+                showQualifierValue(facetQualifier,facet);
+            }
+
+        }
+    }
+
+   
+
+    $scope.changeQualifierValue=function(qualifierValue,facetQualifier,facet){
+        getResults();
+    }
+
+    $scope.showResult =function(){
+        getResults();
+
+    };
+
+    $scope.showNextLevel=function($event,facet){
+        if($event) $event.stopPropagation();
+        //do sth
+        facet["fNextLevel"]=[];
+
+        getCondition();
+        var query= 'select ?class\
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId +'. \
+            ?item wdt:'+ facet.Id + ' ?facetValue. \
+            ?facetValue wdt:P31 ?class. \
+        } \
+        limit 1';
+        wikidataAPI.sendQuery(query).then(function(returnedResult){
+            var classIRI=returnedResult[0]["class"].value;
+            var classId=getEntityId(classIRI);
+            getFacet(classId,facet["fNextLevel"]);
+        });
+
+    }
+   
+
+    $scope.reGenerateInterface=function(){
+      console.log($scope.facets);
+    };
+
+    $scope.showQualifier =function ($event,facet,facetValue){
+        $event.stopPropagation();
+        showQualifierValue(facet,facetValue);
+
+    }
+
+    $scope.delete =function($event,facet){
+        $event.stopPropagation();
+        var newFacets=_.without($scope.facets,_.findWhere($scope.facets,{fullLink:facet.fullLink}));
+        $scope.facets=newFacets;
+    }
+
+    $scope.addFacetValueCondition=function($event,fValues){
+        var newValue={};
+        newValue["condition"]="<=";
+        newValue["threshold"]="1995";
+        newValue["isSelected"]=true;
+        fValues.values.push(newValue);
+    }
+
+    var getResults=function(){
+        $scope.results=[];
+
+        var resultQuery=getResultQuery();
+
+        wikidataAPI.sendQuery(resultQuery)
+            .then(
+                function(result){
+                    $scope.results=result;
+                }
+            );
+        //get number results of query
+
+        wikidataAPI.sendQuery(numberResultsQuery)
+            .then(
+                function(result){
+                    $scope.numberResults=result[0]["numberItems"].value;
+                }
+            );
+
+    }
+
+
+    var getInitInterfaceQuery=function(typeClass){
+        getCondition();
+        var query='Select ?facet ?propertyLabel (count (?facet) as ?numberFound) \
+            where { \
+             hint:Query hint:optimizer "None" . \
+            { select distinct ?item  where { ?item wdt:P31 wd:'+typeClass + '. } limit ' + $scope.limitInstances + '  } \
+            ?item ?facet ?value. \
+            '+ $scope.conditionQuery+' \
+             ?property wikibase:claim ?facet \
+             SERVICE wikibase:label { \
+                    bd:serviceParam wikibase:language "' + $scope.language+'" . \
+                }\
+             } \
+            group by ?facet ?propertyLabel \
+            order by DESC (?numberFound) \
+            limit ' + $scope.limitFacets;
+
+        /*
+        var query='SELECT ?facet (count (?facet) as ?numberFound) \
+        WHERE { \
+            ?item wdt:P31 wd:'+ typeClass +'. \
+                ?item ?facet ?value. \
+                filter strstarts(str(?facet),"http://www.wikidata.org/prop/direct") \
+        } \
+        group by ?facet \
+            order by DESC (?numberFound) \
+        limit 50' ;*/
+        $scope.runningQuery=query;
+        return query;
+    }
+
+    var getFacetValuesQuery=function(facet){
+        getCondition();
+        var query= 'select ?facetValue (count (?facetValue) as ?numberInstances) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId +'. \
+            ?item wdt:'+ facet.Id + ' ?facetValue. \
+            '+ $scope.conditionQuery+' \
+        } \
+        group by ?facetValue \
+        order by DESC (?numberInstances) \
+        limit '+ $scope.numberFacetValues;
+        $scope.runningQuery=query;
+        return query;
+    }
+
+    var getFacetValueMinMaxQuery=function(facet){
+        var query='select (min(?facetValue) as ?minFacetValue) (max(?facetValue) as ?maxFacetValue) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId +'. \
+            ?item wdt:'+ facet.Id + ' ?facetValue. \
+            filter isLiteral(?facetValue). \
+        }';
+        $scope.runningQuery=query;
+        return query;
+    }
+
+    
+
+    
+
+    var getResultQuery=function(){
+        var resultQuery="";
+
+        var facetValueCondition=[];
+        var facetQualifierCondition=[];
+
+        _.each($scope.facets,function(facet){
+
+            var valueCondition=[];
+            var valueQuery="";
+
+            var qualifierValueCondition=[];
+            var qualifierValueQuery="";
+
+            var iStatement=0;
+            if(!facet["fProperty"]["isPropertyType"]){
+                try{
+                    _.each(facet["fValues"]["values"],function(facetValue){
+                        if(facetValue["isSelected"]){
+                            valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
+                        }
+                    })
+                    if(valueCondition.length>0){
+                        facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
+                    }
+
+                }
+                catch(err){
+                    console.log(err);
+                }
+                /*try
+                {
+                    _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
+                        iStatement=iStatement+1;
+
+                        _.each(qualifier["qValues"]["values"],function(qualifierValue){
+                            if(qualifierValue["isSelected"]){
+                                qualifierValueCondition.push('{?statement'+iStatement+' pq:'+ qualifier["qProperty"]["entityId"] + ' wd:'+qualifierValue["entityId"]+'}')
+                            }
+                        })
+                        if(qualifierValueCondition.length>0){
+                            qualifierValueQuery+='{?item p:' + facet["Id"] + ' ?statement'+iStatement+'.';
+                            qualifierValueQuery+="{"+ qualifierValueCondition.join(" UNION ") +"}";
+                            qualifierValueQuery+="}";
+                            facetQualifierCondition.push(qualifierValueQuery);
+                        }
+                    });
+                }
+                catch(err){
+                    console.log(err);
+                }
+                */
+
+            }
+        });
+        var resultQuery=
+        'where \
+        { \
+            ?item wdt:P31 wd:' + $scope.typeId + '.';
+        if(facetValueCondition.length>0){
+            resultQuery+=facetValueCondition.join(".");
+        }
+        if(facetQualifierCondition.length>0){
+            resultQuery+=facetQualifierCondition.join(".");
+        }
+
+         resultQuery+= ' } \
+        limit 50';
+
+        numberResultsQuery='select (count (distinct ?item) as ?numberItems) '+resultQuery;
+        resultQuery='select distinct ?item ' + resultQuery;
+        $scope.runningQuery=resultQuery;
+
+        return resultQuery;
+    }
+
+    var getPropertyLabelQuery=function (property){
+        var query='SELECT ?propertyLabel \
+                    WHERE \
+                    { \
+                        ?property ?ref <' + property + '>.'
+            + '  ?property rdfs:label ?propertyLabel. FILTER (lang(?propertyLabel) = "'+$scope.language+'") \
+                     }\
+                     limit 1 ';
+        return query;
+    }
+
+    var getItemLabelQuery=function(item){
+        var query= 'select ?itemLabel \
+            where \
+        {'
+            + '<'+ item + '> rdfs:label ?itemLabel \
+            filter LANGMATCHES(LANG(?itemLabel), "' + $scope.language + '") \
+        } \
+        limit 1';
+        return query;
+    }
+
+    var getEntityId=function(entity){
+        return entity.substring(entity.lastIndexOf("/")+1,entity.length);
+    }
+
+    var showFacetValue = function($event,facet){
+        $event.stopPropagation();
+        var preCalculatedFacets= _.propertyOf($scope.indexData.data)($scope.config.keyword);
+        if(preCalculatedFacets){
+
+        }
+        else{
+            var propertyId=facet["Id"];
+            var propertyDataType=$scope.propertyDataType[propertyId];
+            facet["fValues"]={};
+            facet["fValues"]["dataType"]=propertyDataType;
+            facet["fValues"]["values"]=[];
+            if(propertyDataType=="Quantity" ||propertyDataType=="Time")
+            {
+                var facetValueMinMaxQuery=getFacetValueMinMaxQuery(facet);
+                wikidataAPI.sendQuery(facetValueMinMaxQuery)
+                    .then(
+                        function(facetValueResult) {
+                            facet["fValues"]["min"]= facetValueResult[0].minFacetValue.value;
+                            facet["fValues"]["max"]= facetValueResult[0].maxFacetValue.value;
+                        }
+                    );
+
+            }
+            else if( propertyDataType=="Url"|| propertyDataType=="WikibaseItem"
+                || propertyDataType=="String"||propertyDataType=="Monolingualtext")
+            {
+                var facetValueQuery=getFacetValuesQuery(facet);//
+                //add value any
+                var newValueObject={};
+                newValueObject["uri"]="Any";
+                newValueObject["entityId"]="Any";
+                newValueObject["text"]="Any";
+                newValueObject["isAny"]=true;
+                newValueObject["fQualifiers"]={};
+                facet["fValues"]["values"].push(newValueObject);
+                //
+                wikidataAPI.sendQuery(facetValueQuery)
+                    .then(
+                        function(facetValueResult) {
+                            _.each(facetValueResult,function(facetValue){
+                                var valueText=facetValue.facetValue.value;//in format http://wikidata.org/property/P21
+                                var numberFound=facetValue.numberInstances.value;
+                                var newValueObject={};
+                                newValueObject["uri"]=valueText;
+                                newValueObject["entityId"]=getEntityId(valueText);
+                                newValueObject["fQualifiers"]={};
+                                facet["fValues"]["values"].push(newValueObject);
+
+                                if(propertyDataType=="WikibaseItem"){
+                                    var itemLabelQuery=getItemLabelQuery(valueText);
+                                    wikidataAPI.sendLabelQuery(itemLabelQuery,newValueObject["entityId"]).then(
+                                        function(returnedData){
+                                            var label=returnedData["data"][0]["itemLabel"].value;
+                                            var itemId=returnedData["entityId"];
+                                            var oldValueObject=_.find(facet["fValues"]["values"],function(fValueObject){
+                                                return fValueObject["entityId"]==itemId;
+                                            });
+                                            oldValueObject["text"]=label;
+                                        }
+                                    );
+
+                                }
+                                else if(propertyDataType=="String"){
+                                    newValueObject["text"]=valueText;
+                                }
+                            });
+                        }
+                    );
+
+            }
+        }
+
+
+    };
+
+    var showQualifierValue=function(facetQualifier,facet){
+        /*
+        var typeObject=_.propertyOf($scope.indexData.data)($scope.config.keyword);
+
+        if(typeObject){
+            var facetObject=_.find(typeObject,function(element){return element.P==facet.abbrLink; });
+
+            var facetValueObject=_.find(facetObject.Pv,function(element){return element.V==facetValue.abbrLink; });
+
+            var qualifierArray=facetValueObject.Q;
+            if(qualifierArray){
+                facetValue.isExpand=true;
+                facetValue.Qualifiers=[];
+                _.each(qualifierArray,function(element){
+                    var newQualifier={};
+                    newQualifier.text=element.Qp;
+                    newQualifier.fullLink=element.Qp;
+                    newQualifier.Values=[];
+                    _.each(element.Qv,function(qualifierValue){
+                        var newObject={};
+                        newObject.text=qualifierValue.V;
+                        newQualifier.Values.push(newObject);
+                    });
+                    facetValue.Qualifiers.push(newQualifier);
+                });
+            }
+        }
+        else{
+
+        }
+        */
+        facetQualifier["qValues"]={};
+        facetQualifier["qValues"]["values"]=[];
+        var qualifierValueQuery=getQualifierValueQuery(facetQualifier,facet);
+        wikidataAPI.sendQuery(qualifierValueQuery)
+            .then(
+                function(qualifierValuesResult) {
+                    _.each(qualifierValuesResult,function(qualifierValueResult){
+                        var newQualifierValue={};
+                        newQualifierValue["uri"]=qualifierValueResult.qualifierValue.value;
+                        newQualifierValue["entityId"]=getEntityId(qualifierValueResult.qualifierValue.value);
+                        facetQualifier["qValues"]["values"].push(newQualifierValue);
+
+                        var itemLabelQuery=getItemLabelQuery(newQualifierValue["uri"]);
+                        wikidataAPI.sendLabelQuery(itemLabelQuery,newQualifierValue["entityId"]).then(
+                            function(returnedData){
+                                var label=returnedData["data"][0]["itemLabel"].value;
+                                var itemId=returnedData["entityId"];
+                                var oldFacetQualifierValueObject=_.find(facetQualifier["qValues"]["values"],function(quantifierValueObject){
+                                    return quantifierValueObject["entityId"]==itemId;
+                                });
+                                oldFacetQualifierValueObject["text"]=label;
+                            }
+                        );
+                    })
+                }
+            );
+    }
+
+    var getCondition=function(){
+        var query="";
+
+        var facetValueCondition=[];
+        var facetQualifierCondition=[];
+
+        _.each($scope.facets,function(facet){
+
+            var valueCondition=[];
+            var valueQuery="";
+
+            var qualifierValueCondition=[];
+            var qualifierValueQuery="";
+
+            var iStatement=0;
+            if(!facet["fProperty"]["isPropertyType"]){
+                try{
+                    if(facet["fValues"]){
+                        _.each(facet["fValues"]["values"],function(facetValue){
+                            if(facetValue["isSelected"]){
+                                if(facetValue["text"]!="Any")
+                                    valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
+
+                            }
+                        })
+                        if(valueCondition.length>0){
+                            facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
+                        }
+
+                    }
+                }
+                catch(err){
+                    console.log(err);
+                }
+                /*try
+                {
+                    _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
+                        iStatement=iStatement+1;
+
+                        _.each(qualifier["qValues"]["values"],function(qualifierValue){
+                            if(qualifierValue["isSelected"]){
+                                qualifierValueCondition.push('{?statement'+iStatement+' pq:'+ qualifier["qProperty"]["entityId"] + ' wd:'+qualifierValue["entityId"]+'}')
+                            }
+                        })
+                        if(qualifierValueCondition.length>0){
+                            qualifierValueQuery+='{?item p:' + facet["Id"] + ' ?statement'+iStatement+'.';
+                            qualifierValueQuery+="{"+ qualifierValueCondition.join(" UNION ") +"}";
+                            qualifierValueQuery+="}";
+                            facetQualifierCondition.push(qualifierValueQuery);
+                        }
+                    });
+                }
+                catch(err){
+                    console.log(err);
+                }
+                */
+
+            }
+        });
+
+        if(facetValueCondition.length>0){
+            query+=facetValueCondition.join(".");
+        }
+        if(facetQualifierCondition.length>0){
+            query+=facetQualifierCondition.join(".");
+        }
+        if(query.length>0) $scope.conditionQuery=query+".";
+        else $scope.conditionQuery=query;
+        return query;
+    }
+
+    var getFacet=function(typeClass,oFacets){
+        var initInterfaceQuery=getInitInterfaceQuery(typeClass);
+        wikidataAPI.sendQueryReturnParams(initInterfaceQuery,oFacets)
+            .then(getFacetSuccess,getFacetError);
+
+    }
+    var getFacetSuccess=function (returnedResult){
+        var facetPropertyResult=returnedResult["data"];
+        var oFacets=returnedResult["oParam"][0];
+
+        _.each(facetPropertyResult,function(facetProperty){
+            var propertyUri=facetProperty.facet.value;//in format http://wikidata.org/property/P21
+            var numberFound=facetProperty.numberFound.value;
+            var propertyId=propertyUri.substring(propertyUri.lastIndexOf("/")+1,propertyUri.length);
+            if($scope.propertyDataType[propertyId]=="WikibaseItem"||$scope.propertyDataType[propertyId]=="Url"
+                || $scope.propertyDataType[propertyId]=="String"||$scope.propertyDataType[propertyId]=="Quantity"
+                ||$scope.propertyDataType[propertyId]=="Time"||$scope.propertyDataType[propertyId]=="Monolingualtext")
+            {
+                var newObject={};
+                newObject["Id"]=propertyId;
+                //for fProperty
+                var fPropertyObject={};
+                if(propertyId=="P31"){
+                    fPropertyObject["isPropertyType"]=true;
+                }
+                else fPropertyObject["isPropertyType"]=false;
+                fPropertyObject["uri"]=propertyUri;
+                fPropertyObject["entityId"]=propertyId;
+                newObject["fProperty"]=fPropertyObject;
+                //for fInterface
+                var fInterfaceObject={};
+                fInterfaceObject["iconText"]="+";
+                fInterfaceObject["isExpand"]=false;
+                fInterfaceObject["isInit"]=true;
+                newObject["fInterface"]=fInterfaceObject;
+                oFacets.push(newObject);
+
+
+                var propertyLabelQuery=getPropertyLabelQuery(propertyUri);
+                wikidataAPI.sendLabelQuery(propertyLabelQuery,propertyId).then(
+                    function(returnedData){
+                        var label=returnedData["data"][0]["propertyLabel"].value;
+                        var propertyId=returnedData["entityId"];
+                        var oldFacet=_.find(oFacets,function(facet){
+                            return facet["Id"]==propertyId;
+                        });
+                        oldFacet["fProperty"]["text"]=label;
+                    }
+                );
+            }
+        });
+    }
+    var getFacetError= function (error){
+        console.log('error initInterfaceQuery'+error);
+    }
+
+    var updateFacetNumberInstances=function(facet){
+        var query='select (count(distinct ?item) as ?numberItems) \
+                    where { \
+                    ?item wdt:P31 wd:' + $scope.typeId + '.'
+                    + '?item wdt:'+facet["Id"]+' ?u.'
+                    + getCondition()
+                    + ' }';
+        wikidataAPI.sendQuery(query)
+            .then(function(response){
+                facet["fInterface"]["numberItems"]=response[0]["numberItems"].value;
+            });
+
+    }
+    //for tree view
+
+    //Run when initializing page: load index file or preprocessing statistic files
+    var init = function () {
+
+        wikidataIndex.getIndexFile().then(
+            function(returnedData){
+                $scope.indexData=returnedData;
+                wikidataSharedData.mapClassFacets=returnedData;
+            }
+        );
+        wikidataIndex.loadPropertyDataTypeStatistic().then(
+            function(returnedData){
+                $scope.propertyDataType=returnedData;
+                wikidataSharedData.mapPropertyDataType=returnedData;
+            }
+        );
+        wikidataIndex.getQuery('qShowFacetValue.txt').then(
+            function(returnedData){
+                wikidataSharedData.query["ShowFacetValue"]=returnedData;
+                console.log(returnedData);
+            }
+        )
+        wikidataIndex.getQuery('qShowQualifier.txt').then(
+            function(returnedData){
+                wikidataSharedData.query["ShowQualifier"]=returnedData;
+                console.log(returnedData);
+            }
+        )
+    };
+    // and fire it after definition
+    init();
+
+
+    $scope.refresh=function($event,facet){
+        showFacetValue($event,facet);
     }
 
 });
@@ -72961,7 +73985,7 @@ app.controller("ctTreeView", ['$scope', function($scope) {
 }]);
 
 
-app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config, wikidataIndex,utilities) {
+app.controller('finalWikidataController', function($scope,$q,$http,wikidataAPI,config, wikidataIndex,utilities) {
     $scope.keyword = "human";
     $scope.search=function(){
         //var query ="select ?u where {?u wdt:P31 wd:Q5.} limit 100";
@@ -73047,16 +74071,18 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                                 else fPropertyObject["isPropertyType"]=false;
                                 fPropertyObject["uri"]=propertyUri;
                                 fPropertyObject["entityId"]=propertyId;
+                                fPropertyObject["text"]=facetProperty.propertyLabel.value;
                                 newObject["fProperty"]=fPropertyObject;
                                 //for fInterface
                                 var fInterfaceObject={};
                                 fInterfaceObject["iconText"]="+";
                                 fInterfaceObject["isExpand"]=false;
                                 fInterfaceObject["isInit"]=true;
+                                fInterfaceObject["numberItems"]=numberFound;
                                 newObject["fInterface"]=fInterfaceObject;
                                 $scope.facets.push(newObject);
 
-
+                                /*
                                 var propertyLabelQuery=getPropertyLabelQuery(propertyUri);
                                 wikidataAPI.sendLabelQuery(propertyLabelQuery,propertyId).then(
                                     function(returnedData){
@@ -73068,6 +74094,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                                         oldFacet["fProperty"]["text"]=label;
                                     }
                                 );
+                                */
                             }
                         });
                     },
@@ -73103,12 +74130,12 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
         showFacetValue($event,facet);
     }
 
-    $scope.showQualifiers=function ($event,facet){
+    $scope.showQualifiers=function ($event,facet,facetValue){
         var propertyId=facet["Id"];
-        facet["fQualifiers"]={};
-        facet["fQualifiers"]["isExpand"]=true;
-        facet["fQualifiers"]["hasQualifiers"]=[];
-        var facetQualifiersQuery=getQualifierQuery(facet);
+        facetValue["fQualifiers"]={};
+        facetValue["fQualifiers"]["isExpand"]=true;
+        facetValue["fQualifiers"]["hasQualifiers"]=[];
+        var facetQualifiersQuery=getQualifierQuery(facet,facetValue);
         wikidataAPI.sendQuery(facetQualifiersQuery).then(function(returnedQualifiersData){
             _.each(returnedQualifiersData,function(qualifierProperty){
                 var newQualifier={};
@@ -73120,14 +74147,14 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                 newQualifier["qInterface"]["isExpand"]=false;
                 newQualifier["qInterface"]["isInit"]=true;
 
-                facet["fQualifiers"]["hasQualifiers"].push(newQualifier);
+                facetValue["fQualifiers"]["hasQualifiers"].push(newQualifier);
                 
                 var propertyLabelQuery=getPropertyLabelQuery(qualifierProperty.qualifier.value);
                 wikidataAPI.sendLabelQuery(propertyLabelQuery,newQualifier["qProperty"]["entityId"]).then(
                     function(returnedData){
                         var label=returnedData["data"][0]["propertyLabel"].value;
                         var propertyId=returnedData["entityId"];
-                        var oldQualifierObject=_.find(facet["fQualifiers"]["hasQualifiers"],function(fQualifierObject){
+                        var oldQualifierObject=_.find(facetValue["fQualifiers"]["hasQualifiers"],function(fQualifierObject){
                             return fQualifierObject["qProperty"]["entityId"]==propertyId;
                         });
                         oldQualifierObject["qProperty"]["text"]=label;
@@ -73157,19 +74184,29 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
         }
     }
 
-    $scope.changeFacetValue =function($event,facetValue,facet){
-        $scope.changeSelectedValue=true;
+    $scope.changeFacetValue =function($event,facet,facetValue){
 
-        getResults();
-        getCondition();
-        //showFacetValue($event,facet);
-        //$scope.showQualifiers($event,facet);
-        _.each($scope.facets, function(facet){
-            if(!facet["fProperty"]["isPropertyType"]){
-                updateFacetNumberInstances(facet);
-            }
+        if(facetValue.text=="Any"){
+            console.log("Any");
+            $scope.showQualifiers($event,facet,facetValue);
+            $scope.showNextLevel($event,facet);
 
-        });
+        }
+        else{
+            $scope.showQualifiers($event,facet,facetValue);
+            $scope.changeSelectedValue=true;
+
+            //getResults();
+            //getCondition();
+            //showFacetValue($event,facet);
+            //$scope.showQualifiers($event,facet);
+            _.each($scope.facets, function(facet){
+                if(!facet["fProperty"]["isPropertyType"]){
+                    updateFacetNumberInstances(facet);
+                }
+
+            });
+        }
     }
 
     $scope.changeQualifierValue=function(qualifierValue,facetQualifier,facet){
@@ -73182,7 +74219,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
     };
 
     $scope.showNextLevel=function($event,facet){
-        $event.stopPropagation();
+        if($event) $event.stopPropagation();
         //do sth
         facet["fNextLevel"]=[];
 
@@ -73253,15 +74290,18 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
 
     var getInitInterfaceQuery=function(typeClass){
         getCondition();
-        var query='Select ?facet (count (?facet) as ?numberFound) \
+        var query='Select ?facet ?propertyLabel (count (?facet) as ?numberFound) \
             where { \
              hint:Query hint:optimizer "None" . \
-            { select ?item  where { ?item wdt:P31 wd:'+typeClass + '. } limit ' + $scope.limitInstances + '  } \
+            { select distinct ?item  where { ?item wdt:P31 wd:'+typeClass + '. } limit ' + $scope.limitInstances + '  } \
             ?item ?facet ?value. \
             '+ $scope.conditionQuery+' \
-             filter strstarts(str(?facet),"http://www.wikidata.org/prop/direct") \
+             ?property wikibase:claim ?facet \
+             SERVICE wikibase:label { \
+                    bd:serviceParam wikibase:language "' + $scope.language+'" . \
+                }\
              } \
-            group by ?facet  \
+            group by ?facet ?propertyLabel \
             order by DESC (?numberFound) \
             limit ' + $scope.limitFacets;
 
@@ -73307,8 +74347,26 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
         return query;
     }
 
-    var getQualifierQuery=function(facet){
-        var query='select ?qualifier (count(?qualifier) as ?countQualifier) \
+    var getQualifierQuery=function(facet,facetValue){
+        var query="";
+        if(facetValue["text"]!="Any"){
+            query='select ?qualifier (count(?qualifier) as ?countQualifier) \
+        where \
+        { \
+            ?item wdt:P31 wd:'+ $scope.typeId + '. \
+            ?item p:'+ facet["Id"] + ' ?statement. \
+            ?statement ps:' + facet["Id"] + ' wd:' + facetValue["entityId"] +'.\
+            ?statement ?qualifier ?qualifierValue. \
+            '+ $scope.conditionQuery+' \
+            filter strstarts(str(?qualifier),"http://www.wikidata.org/prop/qualifier/P") \
+        } \
+        group by (?qualifier) \
+        order by DESC(?countQualifier) \
+        limit 10' ;
+
+        }
+        else{
+            query='select ?qualifier (count(?qualifier) as ?countQualifier) \
         where \
         { \
             ?item wdt:P31 wd:'+ $scope.typeId + '. \
@@ -73320,6 +74378,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
         group by (?qualifier) \
         order by DESC(?countQualifier) \
         limit 10' ;
+        }
         $scope.runningQuery=query;
         return query;
     }
@@ -73371,7 +74430,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                 catch(err){
                     console.log(err);
                 }
-                try
+                /*try
                 {
                     _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
                         iStatement=iStatement+1;
@@ -73392,7 +74451,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                 catch(err){
                     console.log(err);
                 }
-
+                */
 
             }
         });
@@ -73470,7 +74529,16 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
             else if( propertyDataType=="Url"|| propertyDataType=="WikibaseItem"
                 || propertyDataType=="String"||propertyDataType=="Monolingualtext")
             {
-                var facetValueQuery=getFacetValuesQuery(facet);
+                var facetValueQuery=getFacetValuesQuery(facet);//
+                //add value any
+                var newValueObject={};
+                newValueObject["uri"]="Any";
+                newValueObject["entityId"]="Any";
+                newValueObject["text"]="Any";
+                newValueObject["isAny"]=true;
+                newValueObject["fQualifiers"]={};
+                facet["fValues"]["values"].push(newValueObject);
+                //
                 wikidataAPI.sendQuery(facetValueQuery)
                     .then(
                         function(facetValueResult) {
@@ -73480,6 +74548,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                                 var newValueObject={};
                                 newValueObject["uri"]=valueText;
                                 newValueObject["entityId"]=getEntityId(valueText);
+                                newValueObject["fQualifiers"]={};
                                 facet["fValues"]["values"].push(newValueObject);
 
                                 if(propertyDataType=="WikibaseItem"){
@@ -73585,20 +74654,24 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
             var iStatement=0;
             if(!facet["fProperty"]["isPropertyType"]){
                 try{
-                    _.each(facet["fValues"]["values"],function(facetValue){
-                        if(facetValue["isSelected"]){
-                            valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
-                        }
-                    })
-                    if(valueCondition.length>0){
-                        facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
-                    }
+                    if(facet["fValues"]){
+                        _.each(facet["fValues"]["values"],function(facetValue){
+                            if(facetValue["isSelected"]){
+                                if(facetValue["text"]!="Any")
+                                    valueCondition.push('{?item wdt:'+ facet["Id"] + ' wd:'+facetValue["entityId"]+'}')
 
+                            }
+                        })
+                        if(valueCondition.length>0){
+                            facetValueCondition.push("{"+ valueCondition.join(" UNION ") +"}");
+                        }
+
+                    }
                 }
                 catch(err){
                     console.log(err);
                 }
-                try
+                /*try
                 {
                     _.each(facet["fQualifiers"]["hasQualifiers"],function(qualifier){
                         iStatement=iStatement+1;
@@ -73619,7 +74692,7 @@ app.controller('wikidataController', function($scope,$q,$http,wikidataAPI,config
                 catch(err){
                     console.log(err);
                 }
-
+                */
 
             }
         });

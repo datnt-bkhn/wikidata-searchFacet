@@ -21,6 +21,16 @@ app.factory('wikidataIndex', function($http) {
             }, function(error){
                 throw "error in loading file property data type";
             });
+        },
+        //get content file
+        getQuery: function(queryFile){
+            var urlFacetFile = 'app/data/'+ queryFile;
+
+            return $http.get(urlFacetFile).then(function(content) {
+                return content.data;
+            }, function(error){
+                throw "error in loading file property data type";
+            });
         }
     }
 
