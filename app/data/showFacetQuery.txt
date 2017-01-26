@@ -1,0 +1,26 @@
+Select ?property ?propertyLabel ?numberFound ?numberItems
+where
+{
+	{
+		Select ?property (count (?property) as ?numberFound) (count(distinct(?item)) as ?numberItems)
+		where
+		{
+			{
+				select ?property ?item
+				where
+				{
+				    hint:Query hint:optimizer "None" .
+					?item wdt:P31 wd:$1$.
+					$c$
+					$s$
+				}
+				limit $2$
+			}
+		}
+		group by ?property
+		order by DESC (?numberFound)
+	}
+	SERVICE wikibase:label {bd:serviceParam wikibase:language "$3$". }
+}
+order by DESC (?numberFound)
+limit $4$

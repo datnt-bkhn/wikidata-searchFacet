@@ -1,5 +1,5 @@
 <div ng-if="!facet.fProperty.isPropertyType">
-    <span ng-click="showHideFacet($event,facet)" class="btnExpand">{{facet.fInterface.iconText}}</span>
+    <span ng-click="showFacetValue($event,facet)" class="btnExpand">{{facet.fInterface.iconText}}</span>
     <a ng-href="{{facet.fProperty.uri}}" target="_blank"> <span>{{ facet.fProperty.text}}({{facet.fInterface.numberItems}}) </span> </a>
     <!--<span ng-click="refresh($event,facet)">R</span>-->
     <div ng-show="facet.fInterface.isExpand">
@@ -18,7 +18,7 @@
                     <!--<span ng-click="showQualifiers($event,facet,facetValue)" class="btnExpand">+ Show Qualifiers</span>-->
                     <ul ng-if="facetValue.fQualifiers">
                         <li ng-repeat="facetQualifier in facetValue.fQualifiers.hasQualifiers">
-                            <span ng-click="showHideQualifierValue($event,facet,facetValue,facetQualifier)" class="btnExpand">{{facetQualifier.qInterface.iconText}}</span>
+                            <span ng-click="showQualifierValue($event,facet,facetValue,facetQualifier)" class="btnExpand">{{facetQualifier.qInterface.iconText}}</span>
                             <a ng-href="{{facetQualifier.qProperty.uri}}" target="_blank"> <span>{{facetQualifier.qProperty.text}}({{facetQualifier.numberItems}})</span> </a>
                             <!--<span ng-click="showQualifierValue(facetQualifier,facet,facetValue)">refesh</span> -->
                             <ul ng-show="facetQualifier.qInterface.isExpand">
@@ -41,10 +41,10 @@
                         </li>
                     </ul>
                     <ul ng-if="facetValue.text=='Any'">
-                        <span ng-click="showNextLevel($event,facet)" class="btnExpand">ShowNextLevel</span>
+                        <span ng-click="showClassNextLevel($event,facet)" class="btnExpand">ShowNextLevel</span>
 
                         <li ng-repeat="instanceOf in facet.fNextLevel.fClass">
-                            <input type="checkbox" ng-model="instanceOf.isSelected" ng-change="generateFacetNextLevel($event,facet,facet.fNextLevel)">
+                            <input type="checkbox" ng-model="instanceOf.isSelected" ng-change="showFacetNextLevel($event,facet,facet.fNextLevel)">
                             <span>{{instanceOf.text}}</span>
                         </li>
 

@@ -2,28 +2,44 @@
  * Created by tintin on 6/16/2016.
  */
 
-app.factory('wikidataAPI', function($http) {
+app.factory('wikidataAPI', function($http,exceptionManager) {
     return {
-        sendQuery: function(query){
+        sendQuery: function(query) {
             var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +
                 encodeURIComponent(query);
-            var config={cache:false};
-            return $http.get(urlSPARQL,config).then (
-                function(response){
+            var config = {cache: false};
+            return $http.get(urlSPARQL, config)
+                .then(function (response) {
                     return response.data.results.bindings;
-                },
-                function(response){
-                    /*
-                    The response object has these properties:
-                        data – {string|Object} – The response body transformed with the transform functions.
-                        status – {number} – HTTP status code of the response.
-                        headers – {function([headerName])} – Header getter function.
-                        config – {Object} – The configuration object that was used to generate the request.
-                        statusText – {string} – HTTP status text of the response.
-                    */
-                    throw response;
-                }
-            );
+                })
+                .catch(function (response) {
+                        /*
+                         The response object has these properties:
+                         data – {string|Object} – The response body transformed with the transform functions.
+                         status – {number} – HTTP status code of the response.
+                         headers – {function([headerName])} – Header getter function.
+                         config – {Object} – The configuration object that was used to generate the request.
+                         statusText – {string} – HTTP status text of the response.
+                         */
+                    var exception=new exceptionManager(response.data,0,"Unable to connect network");
+                    switch (response.status){
+                        case -1:
+                            exception=new exceptionManager(response.data,0,"Unable to connect network");
+                            break;
+                        case 400:
+                            exception=new exceptionManager(response.data,1,"Bad Request");
+                            break;
+                        case 500:
+                            exception==new exceptionManager(response.data,2,"Time Out");
+                            break;
+                        default:
+                            exception==new exceptionManager(response.data,3,"Unknown error in sending wikidata API query");
+                    }
+                        //return exception;
+                        throw exception;
+
+                    }
+                );
         },
         sendQueryReturnParams: function(query,oParam1,oParam2){
             var urlSPARQL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query=' +

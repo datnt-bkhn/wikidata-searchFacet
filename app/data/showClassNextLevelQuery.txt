@@ -1,0 +1,26 @@
+select ?class ?classLabel ?numberFound
+where
+{
+    {
+		Select ?class (count(?class) as ?numberFound)
+		Where
+		{
+			{
+				SELECT ?class
+				WHERE
+				{
+					?item wdt:P31 wd:$1$.
+					$c$
+					?item wdt:$2$ ?facetValue.
+					?facetValue wdt:P31 ?class.
+				}
+				limit $3$
+            }
+        }
+        group by (?class)
+        order by DESC (?numberFound)
+        limit $4$
+    }
+    SERVICE wikibase:label {bd:serviceParam wikibase:language "$5$".}
+}
+order by DESC (?numberFound)

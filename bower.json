@@ -18,6 +18,7 @@
     "underscore": "^1.8.3",
     "angular-bootstrap": "^2.0.0",
     "angular-animate": "^1.5.8",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular-ui-utils": "bower"
   }
 }

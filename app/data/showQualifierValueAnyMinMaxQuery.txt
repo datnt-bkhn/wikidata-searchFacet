@@ -1,0 +1,10 @@
+select (min(?qualifierValue) as ?minQualifierValue) (max(?qualifierValue) as ?maxQualifierValue)
+        where 
+        { 
+            ?item wdt:P31 wd:$1$.
+            ?item p:$2$ ?statement.
+            ?statement pq:$3$ ?qualifierValue.
+            filter isLiteral(?qualifierValue)
+          }
+
+    

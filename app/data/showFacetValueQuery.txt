@@ -1,0 +1,27 @@
+SELECT ?facetValue ?facetValueLabel ?numberInstances ?numberItems
+WHERE 
+{
+	{
+		select ?facetValue  (count (?facetValue) as ?numberInstances) (count(distinct(?item)) as ?numberItems)
+		where         
+			{              
+			    {
+                    select ?facetValue ?item
+                    where
+                    {
+                        hint:Query hint:optimizer "None" .
+                        ?item wdt:P31 wd:$1$.
+                		$c$
+                		$s$
+                    }
+                    limit $3$
+                }
+            }             
+		group by ?facetValue         
+		order by DESC (?numberInstances)      
+		limit $4$
+	}
+   SERVICE wikibase:label {bd:serviceParam wikibase:language "$5$".}
+}
+order by DESC (?numberInstances)
+

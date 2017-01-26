@@ -17,7 +17,6 @@
     <script src="app/Service/wikidataSharedData.js"></script>
     <script src="app/Service/facetParser.js"></script>
     <script src="app/Service/queryManager.js"></script>
-    <script src="app/Service/exceptionManager.js"></script>
 
     <script src="app/controllers/accorditionController.js"></script>
     <script src="app/controllers/autoCompleteController.js"></script>
@@ -28,27 +27,12 @@
 </head>
 <body ng-app="myApp" ng-controller="wikidataController" ng-cloak>
     <div layout="column">
-        <div class="ct-div-header" layout="row">
-            <div flex="20" class="ct-div-header-left">
-                <img src="app/img/wikidatawiki.png" />
-            </div>
-            <div flex="60" class="ct-div-header-center">
-                Facted Browsing for Wikidata
-            </div>
-            <div flex="20" class="ct-div-header-right">
-                <div class="ct-div-header-right-content">
-                    <img src="app/img/language.png">
-                    <span class="text-info">English</span>
-                    <span class="text-info">About</span>
-                </div>
-            </div>
-
-        </div>
+        <div class="ct-div-header"> Facted Browsing for Wikidata </div>
         <div class="ct-div-search" layout="row">
 
-            <div flex="100" layout="row" ng-cloak>
-                <md-content class="md-padding ct-md-content" ng-controller="autoCompleteController">
-                    <form  ui-keypress="{13:'myFunc($event)'}"  ng-submit="$event.preventDefault()">
+            <div flex="100"  layout="row" ng-cloak>
+                <md-content class="md-padding" ng-controller="autoCompleteController">
+                    <form ng-submit="$event.preventDefault()">
                         <md-autocomplete
                                 md-selected-item="selectedItem"
                                 md-search-text-change="searchTextChange(searchText)"
@@ -68,33 +52,24 @@
                         <br/>
                     </form>
                 </md-content>
-                <md-button class="md-icon-button ct-md-button" aria-label="More" ng-click="showFacet()">
+                <md-button class="" ng-click="showFacet()">
                     <md-icon md-svg-src="app/img/search.svg"></md-icon>
                 </md-button>
             </div>
 
         </div>
-
-        <div class="div-loading" ng-show="loader.isLoadingFacet">
-            <img src="app/img/loader.svg"/>
-        </div>
-        <div flex="100" class="div-main-content" layout="row" ng-show="!loader.isLoadingFacet">
-            <div flex="25" layout="column" class="menu-left">
-                <!--<img src="app/img/reload.svg" ng-if="loader.isLoadingFacet"/>-->
-                <div ng-show="!loader.isLoadingFacet && facets.fClass.length>0">
-                    <div class="div_InstanceOf">
-                        <div class="div_InstanceOf_header">
-                            <span>Instance Of</span>
-                        </div>
-                        <div class="div_InstanceOf_content">
-                                <li ng-repeat="class in facets.fClass">
-                                    <input type="checkbox" disabled="true" checked="true">
-                                    <span class="text-info"> {{class.text}}</span>
-                                </li>
-                        </div>
+        <div layout="row">
+            <div flex="20" layout="column">
+                <div class="loader" ng-show="loader.isLoadingFacet"></div>
+                <div ng-if="!loader.isLoadingFacet">
+                    <div><span> Instance of </span>
+                        <ul>
+                            <li ng-repeat="class in facets.fClass">
+                                {{class.text}}
+                            </li>
+                        </ul>
                     </div>
 
-                    <!--
                     <ul>
                         <li ng-repeat="facet in facets.fFacet" ng-include="'app/directives/facetTreeView.html'">
                         </li>
@@ -104,37 +79,21 @@
                         </div>
 
                     </ul>
-                    -->
-                    <div  ng-repeat="facet in facets.fFacet" ng-include="'app/directives/facetTreeViewAccordion.html'">
-
-                    </div>
                 </div>
-            </div>
+                </div>
 
-            <div flex="" ng-if="results.length>0">
-                <span>{{errorMessage}}</span>
-                <!--<img src="app/img/loader.svg" ng-if="loader.isLoadingNumberResult"/>-->
+            <div flex="60">
                 <span>The number of results: {{numberResults}}</span>
-                <!--<img src="app/img/gear.svg" ng-if="loader.isLoadingResult"/>-->
-                <div class="div-result">
-                <ul class="list-group">
-                    <li class="list-group-item row">
-                        <div class="col-md-5">Entity </div>
-                        <div class="col-md-7">Text</div>
-                        <!--<div class="col-md-9">
-                            <span class="list-group-item-heading"><a href="#">Description</a></span>
-                        </div>-->
-                    </li>
-                    <li class="list-group-item row content" ng-repeat="result in results">
-                        <div class="col-md-5">{{result.item.value}}</div>
-                        <div class="col-md-7">{{result.itemLabel.value}}</div>
-                        <!--<div class="col-md-9">
-                            <span class="list-group-item-heading"><a href="#">{{result.item.value}}</a></span>
-                        </div>
-                        -->
+                <ul>
+                    <li ng-repeat="result in results">
+                        {{result.item.value}}
                     </li>
                 </ul>
-                </div>
+            </div>
+            <div flex>
+                <md-content flex layout-padding>
+                    {{runningQuery}}
+                    </md-content>
             </div>
         </div>
 
@@ -142,10 +101,36 @@
 
 <!--
     <div ng-controller="AccordionDemoCtrl">
+        <script type="text/ng-template" id="group-template.html">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="color:#fa39c3">
+                    <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+            {{heading}}
+          </span>
+                    </a>
+                </h4>
+            </div>
+            <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                <div class="panel-body" style="text-align: right" ng-transclude></div>
+            </div>
+        </script>
 
+        <p>
+            <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+            <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+        </p>
 
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="oneAtATime">
+                Open only one at a time
+            </label>
+        </div>
         <uib-accordion close-others="oneAtATime">
-
+            <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                This content is straight in the template.
+            </div>
             <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
                 {{group.content}}
             </div>
@@ -154,17 +139,29 @@
                 <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
                 <div ng-repeat="item in items">{{item}}</div>
             </div>
-            <div uib-accordion-group class="panel-default" is-open="status.open" ng-click="showFacetValue($event,facet)">
+            <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+                Hello
+            </div>
+            <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+                <uib-accordion-heading>
+                    Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+                </uib-accordion-heading>
+                World
+            </div>
+            <div uib-accordion-group class="panel-danger" heading="Delete account">
+                <p>Please, to delete your account, click the button below</p>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+            <div uib-accordion-group class="panel-default" is-open="status.open">
                 <uib-accordion-heading>
                     I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                 </uib-accordion-heading>
                 This is just some content to illustrate fancy headings.
             </div>
-
         </uib-accordion>
     </div>
--->
 
+-->
 </body>
 </html>
 

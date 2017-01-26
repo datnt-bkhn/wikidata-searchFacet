@@ -6,9 +6,10 @@ where
 		where
 		{
 			?item wdt:P31 wd:$1$.
-            ?item wdt:$2$ ?u.
+            ?item wdt:$2$ ?Any.
+            $c$
             ?u wdt:P31 wd:$3$.
-			?u ?facet ?value.
+			?Any ?facet ?value.
     		?property wikibase:claim ?facet
 		}
 		limit 100000

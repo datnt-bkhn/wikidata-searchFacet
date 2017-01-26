@@ -12,7 +12,7 @@ app.controller('autoCompleteController', function($scope,$http,$log,wikidataAPI,
     //$scope.config=config;
 
     function querySearch (query) {
-        return wikidataAPI.getSuggestion(query,'en')
+        return wikidataAPI.getSuggestion(query,wikidataSharedData.config.languageCode)
                 .then(function(suggestionResult){
                     return suggestionResult.map(function(suggestion){
                        return {
@@ -35,6 +35,10 @@ app.controller('autoCompleteController', function($scope,$http,$log,wikidataAPI,
         $log.info('Item changed to ' + JSON.stringify(item));
         //$scope.config.keyword=item.id;
         wikidataSharedData.config.keyword=item.id;
+        var initClass=wikidataSharedData.config.initClass[0];
+        initClass["uri"]=item.url;
+        initClass["entityId"]=item.id;
+        initClass["text"]=item.label;
     }
 
 });

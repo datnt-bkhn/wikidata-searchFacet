@@ -1,0 +1,83 @@
+<div class="md-accordion">
+<div class="div_facetProperty" ng-class="'level_'+facet.level" ng-init="facet.fInterface.isExpand = false" ng-if="facet.fInterface.numberItems>0" ng-click="showFacetValue($event,facet)">
+    <div class="div_facetProperty_left">
+        <a ng-href="{{facet.fProperty.uri}}" target="_blank"> <span class="text-muted">{{ facet.fProperty.text}}({{facet.fInterface.numberItems}}) </span> </a>
+    </div>
+        <span flex=""></span>
+    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': facet.fInterface.isExpand, 'glyphicon-chevron-right': !facet.fInterface.isExpand}"></i>
+</div>
+<div class="div_content" ng-class="{dataContent:true, activeContent:facet.fInterface.isExpand}" ng-show="facet.fInterface.isExpand">
+    <md-content>
+        <!-- datatype of facet is WikibaseItem -->
+        <div ng-if="facet.fValues.dataType=='WikibaseItem'">
+            <li ng-repeat="facetValue in facet.fValues.values">
+                <input type="checkbox" ng-model="facetValue.isSelected" ng-change="changeFacetValue($event,facet,facetValue)">
+                <span class="text-info" ng-if="facetValue.text!='Any'">{{facetValue.text}}({{facetValue.numberItems}})</span>
+                <span class="text-info" ng-if="facetValue.text=='Any'">{{facetValue.text}}({{facet.fInterface.numberItems}})</span>
+                <!--<span ng-click="showQualifiers($event,facet,facetValue)" class="btnExpand">+ Show Qualifiers</span>-->
+                <ul ng-if="facetValue.fQualifiers.hasQualifiers.length>0">
+                    <div class="div_qualifier">
+                        <div class="div_qualifier_header"><span> Qualifier</span></div>
+                        <div class="div_qualifier_content">
+                        <li ng-repeat="facetQualifier in facetValue.fQualifiers.hasQualifiers">
+                            <span ng-click="showQualifierValue($event,facet,facetValue,facetQualifier)" class="btnExpand">{{facetQualifier.qInterface.iconText}}</span>
+                            <a ng-href="{{facetQualifier.qProperty.uri}}" target="_blank"> <span>{{facetQualifier.qProperty.text}}({{facetQualifier.numberItems}})</span> </a>
+                            <!--<span ng-click="showQualifierValue(facetQualifier,facet,facetValue)">refesh</span> -->
+                            <ul ng-show="facetQualifier.qInterface.isExpand">
+                                <div ng-if="facetQualifier.qValues.dataType=='String' || facetQualifier.qValues.dataType=='Url' || facetQualifier.qValues.dataType=='Monolingualtext' || facetQualifier.qValues.dataType=='WikibaseItem'">
+                                    <li ng-repeat="qualifierValue in facetQualifier.qValues.values">
+                                        <input type="checkbox" ng-model="qualifierValue.isSelected" ng-change="changeQualifierValue(qualifierValue,facetQualifier,facet,facetValue)">
+                                        <span> {{qualifierValue.text}} ({{qualifierValue.numberItems}})</span>
+                                    </li>
+                                </div>
+                                <div ng-if="facetQualifier.qValues.dataType=='Time' || facetQualifier.qValues.dataType=='Quantity'">
+                                    <li><span>From {{facetQualifier.qValues.min}} To {{facetQualifier.qValues.max}}</span></li>
+                                </div>
+
+                            </ul>
+                        </li>
+                        </div>
+                    </div>
+
+                </ul>
+
+                <ul ng-if="facetValue.text=='Any'">
+                    <div class="div_NextLevel" ng-if="facetValue.isSelected">
+                        <span ng-click="showClassNextLevel($event,facet)" class="btnExpand">Show Next Level</span>
+                        <div class="div_InstanceOf level_2" ng-if="facet.fNextLevel.fInterface.isActiveShowNextLevel">
+                            <div class="div_InstanceOf_header">
+                                <span>Instance Of</span>
+                            </div>
+                            <div class="div_InstanceOf_content">
+                                    <li ng-repeat="instanceOf in facet.fNextLevel.fClass">
+                                        <input type="checkbox" ng-model="instanceOf.isSelected" ng-change="showFacetNextLevel($event,facet,facet.fNextLevel)">
+                                        <span>{{instanceOf.text}}</span>
+                                    </li>
+                            </div>
+                        </div>
+
+                        <li ng-repeat="facet in facet.fNextLevel.fFacet" ng-include="'app/directives/facetTreeViewAccordion.html'">
+                        </li>
+                    </div>
+                </ul>
+            </li>
+        </div>
+        <!-- datatype of facet is String or Url or MongoningualText (do not next lever?) -->
+        <div ng-if="facet.fValues.dataType=='String'|| facet.fValues.dataType=='Url'|| facet.fValues.dataType=='Monolingualtext'">
+            <li ng-repeat="facetValue in facet.fValues.values">
+                <input type="checkbox" ng-model="facetValue.isSelected" ng-change="changeFacetValue($event,facetValue,facet)">
+                <span>{{facetValue.text}}</span>
+            </li>
+        </div>
+        <!-- datatype of facet is Time or quantity (show value bar) -->
+        <div ng-if="facet.fValues.dataType=='Time' || facet.fValues.dataType=='Quantity'">
+            <li><span>From <input type="number" name="input" ng-model="facet.fValues.min" min="facet.fValues.min" max="facet.fValues.max" required>
+                To <input type="number" name="input" ng-model="facet.fValues.max" min="facet.fValues.min" max="facet.fValues.max" required></span>
+                <input type="button" ng-click="updateNumber(facet)" value="Go"></li>
+        </div>
+
+    </md-content>
+</div>
+</div>
+
+
